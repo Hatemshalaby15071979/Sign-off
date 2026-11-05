@@ -1,0 +1,4 @@
+ts,actor,event_type,detail,policy_rule
+2026-09-05 08:00,Admin_1,kill_switch,quarterly-exercise,DEMO-AUD-1
+2026-09-30 17:30,Admin_1,access_revoked,Contractor_2,DEMO-AUD-1
+2026-10-12 09:00,Admin_2,pii_log_check,weekly-sweep,DEMO-AUD-1

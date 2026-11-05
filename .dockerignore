@@ -1,0 +1,25 @@
+# Never ship real client data or owner private files into an image
+OWNER/real-data/
+OWNER/questionnaires/*
+!OWNER/questionnaires/PLACE-REAL-CLIENT-FORMS-HERE.md
+# Any CSV under OWNER/ is owner content — never bake it into an image
+OWNER/*.csv
+OWNER/**/*.csv
+
+# Repo noise
+.git/
+.gitignore
+out/
+.pytest_cache/
+.coverage
+htmlcov/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+docs/
+tests/fixtures/expected/
+REPORT.md
+REPORT.json
+docker-compose.yml
+Makefile

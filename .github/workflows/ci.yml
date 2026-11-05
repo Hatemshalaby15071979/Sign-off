@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install pinned dev dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "fpdf2==2.8.4" "openpyxl==3.1.5" "pytest==9.1.1" "pytest-cov==7.1.0"
+          python -m pip install --no-deps -e .
+
+      - name: Scaffold check
+        run: python scripts/check-scaffold.py
+
+      - name: Offline + no-LLM static scan
+        run: python scripts/check-offline.py
+
+      - name: All checks (scaffold, offline, determinism)
+        run: bash scripts/run-all-checks.sh
+
+      - name: Pytest with coverage
+        run: python -m pytest --cov=src/signoff -q
+
+      - name: Build Docker image
+        run: docker build -t signoff:ci .
+
+      - name: Run demo with --network none
+        run: |
+          docker run --rm --network none --read-only \
+            -v "$PWD/out/ci-demo:/out" signoff:ci demo --out /out/demo
+          test -s "$PWD/out/ci-demo/demo/dossier.html"
+          test -s "$PWD/out/ci-demo/demo/dossier.pdf"

@@ -1,0 +1,4 @@
+ts,ticket_id,escalated_by,supervisor_id,authorised,reason,policy_rule
+2026-09-18 10:12,T-1,Agent_08,Supervisor_1,yes,angry-customer-call,DEMO-ESC-1
+2026-10-11 15:45,T-2,Agent_22,TeamLead_9,no,bonus-scheme-override,DEMO-ESC-1
+2026-10-25 11:05,T-4,Agent_31,Supervisor_3,yes,threat-escalation,DEMO-ESC-1

@@ -1,0 +1,16 @@
+# Signoff docker-compose — local, offline use pattern only.
+# Input is mounted READ-ONLY; output is a writable single directory.
+# No ports are published: there is no server, no API, and no network call.
+services:
+  demo:
+    build: .
+    image: signoff:0.1.0
+    user: signoff
+    read_only: true
+    network_mode: none
+    entrypoint: ["python", "-m", "signoff"]
+    command: ["demo", "--out", "/out/demo"]
+    volumes:
+      - ./out/demo:/out
+    # Mount your real data on the customer's machine with:
+    #   - <exports-folder>:/data:ro

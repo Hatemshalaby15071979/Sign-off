@@ -1,0 +1,5 @@
+ts,role,assigned_to,is_authorised_supervisor,named_accountable,policy_rule
+2026-08-20,Accountable_Executive,Demo_Stakeholder_A,no,Demo_Exec_Signatory,DEMO-ACC-1
+2026-08-20,Support_Team_Lead,Supervisor_1,yes,,DEMO-ACC-1
+2026-08-20,Support_Team_Lead,Supervisor_3,yes,,DEMO-ACC-1
+2026-08-20,Support_Team_Lead,TeamLead_9,no,,DEMO-ACC-1

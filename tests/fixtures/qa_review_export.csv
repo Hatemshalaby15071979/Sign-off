@@ -1,0 +1,7 @@
+ts,case_id,agent_id,ai_action,human_action,reviewer_id,ai_identity,qa_score,policy_rule
+2026-09-14 10:00,C-1001,Agent_17,auto_score,accepted,Reviewer_A,qa-copilot-demo-v1,88,DEMO-QA-1
+2026-09-21 11:30,C-1002,Agent_08,auto_score,edited,Reviewer_B,qa-copilot-demo-v1,61,DEMO-QA-1
+2026-10-05 09:15,C-1003,Agent_22,auto_score,accepted,Reviewer_A,qa-copilot-demo-v1,92,DEMO-QA-1
+2026-10-05 10:45,C-1004,Agent_31,auto_score,edited,Reviewer_C,qa-copilot-demo-v1,55,DEMO-QA-1
+2026-10-20 14:00,C-1005,Agent_44,auto_score,,,,70,DEMO-QA-1
+2026-10-28 16:20,C-1006,Agent_17,auto_score,accepted,Reviewer_A,,81,DEMO-QA-1

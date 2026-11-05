@@ -1,0 +1,7 @@
+<<<OWNER — DO NOT AUTO-FILL — HUMAN DECISION REQUIRED>>>
+# TEMPLATE ONLY. These example rows show the shape of the mapping table.
+# Every decided_by below is OWNER_PENDING and verified=no: they are NOT
+# approved rules. Replace them with your own rules, sign them with your name
+# and the date, and set verified=yes only after you have personally checked
+# that the file+columns named in evidence_needed exist in the customer's data.
+# See docs/MAPPING-TABLE-GUIDE.md and ask: never let a model write a rule.

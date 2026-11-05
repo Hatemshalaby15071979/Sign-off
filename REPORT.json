@@ -1,0 +1,45 @@
+{
+  "product": "Signoff",
+  "version": "0.1.0",
+  "as_of": "2026-11-05T00:00:00+00:00",
+  "objective": "Offline CLI and Docker evidence-pack builder for AI vendor questionnaires",
+  "runtime": {
+    "python": ">=3.11",
+    "dependencies": ["fpdf2==2.8.4"],
+    "optional_xlsx": "openpyxl==3.1.5",
+    "network_calls": false,
+    "llm_in_evidence_path": false
+  },
+  "outputs": [
+    "questionnaire-answers.csv",
+    "dossier.html",
+    "dossier.pdf",
+    "pack.json",
+    "gap-list.csv",
+    "evidence-events.csv",
+    "oversight-statement.txt"
+  ],
+  "owner_boundary": {
+    "mapping_table": "header-only",
+    "human_signature": "blank by design"
+  },
+  "verification": {
+    "scaffold": "passed",
+    "pytest": "140 passed",
+    "coverage_percent": 88,
+    "offline_scan": "passed",
+    "determinism": "passed",
+    "docker_network_none_demo": "previously recorded in build brief; not repeated during final pass"
+  },
+  "demo": {
+    "synthetic": true,
+    "watermark": "SIMULATION_DISCLOSURE",
+    "verification": "VERIFIED"
+  },
+  "limitations": [
+    "Hash integrity does not authenticate source records",
+    "Coverage is limited to supplied records, patterns, and time window",
+    "No legal or compliance certification is provided",
+    "Human review and signature remain required"
+  ]
+}

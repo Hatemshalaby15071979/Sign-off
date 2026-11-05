@@ -1,0 +1,4 @@
+ts,request_id,gate,decision,approver_id,policy_rule
+2026-09-10 09:00,R-1,refund_approval,ai_proposed,,DEMO-GATE-2
+2026-10-02 13:40,R-2,override_approval,blocked,Supervisor_2,DEMO-GATE-2
+2026-10-15 15:10,R-3,disclosure_approval,approved,Reviewer_B,DEMO-GATE-2

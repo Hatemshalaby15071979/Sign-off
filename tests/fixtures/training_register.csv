@@ -1,0 +1,4 @@
+ts,staff_id,module_name,completed,completed_by,policy_rule
+2026-09-08,Agent_17,ai-oversight-v2,yes,Trainer_1,DEMO-TRN-1
+2026-09-09,Agent_08,ai-oversight-v2,yes,Trainer_1,DEMO-TRN-1
+2026-09-15,Agent_22,ai-oversight-v2,no,,DEMO-TRN-1

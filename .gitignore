@@ -1,0 +1,30 @@
+# Output artifacts
+out/
+*.output/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Virtual environments (dev-only; runtime is stdlib + fpdf2)
+.venv/
+venv/
+
+# NEVER commit real client data — enforced by .dockerignore and docs/THREAT-MODEL.md
+OWNER/questionnaires/*
+!OWNER/questionnaires/PLACE-REAL-CLIENT-FORMS-HERE.md
+OWNER/real-data/*
+!OWNER/real-data/README.md
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+
+# Git
+.git/

@@ -1,0 +1,41 @@
+# Signoff — pyproject.toml
+# Offline, deterministic evidence-pack builder for AI questionnaire responses.
+# Runtime: Python 3.11+ standard library ONLY, plus one pinned pure-Python PDF library (fpdf2).
+# No network is used at runtime. Dev-only extras install pytest tooling.
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "signoff"
+version = "0.1.0"
+description = "Offline, signable AI questionnaire evidence-pack builder for contact-centre and back-office operations."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "Hatem (owner decision required)" }]
+dependencies = [
+    "fpdf2==2.8.4",   # pinned pure-Python PDF library; see docs/01-DECISION-LOG.md D-007
+]
+
+[project.optional-dependencies]
+xlsx = ["openpyxl==3.1.5"]
+dev = [
+    "pytest==9.1.1",
+    "pytest-cov==7.1.0",
+    "fpdf2==2.8.4",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.coverage.run]
+source = ["src/signoff"]
