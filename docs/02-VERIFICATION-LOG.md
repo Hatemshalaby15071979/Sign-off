@@ -62,3 +62,7 @@ Commands: `python3 scripts/check-scaffold.py`, `python3 scripts/check-determinis
 - `PYTHONPATH=src python3 -m pytest --cov=signoff --cov-report=term`: 140 passed; 88% (1,485 statements, 181 missed).
 - PDF metadata no longer leaks the build host time; it is derived from the deterministic pack timestamp.
 - Signoff directory is not a Git repository in this workspace. GitHub/remote CI, clean external install and current Docker runtime were not verified in this pass.
+
+## History-secret scan — 2026-11-05
+
+Initialized the local Git repository for the supplied, previously empty GitHub project and committed the audited candidate. Ran the full-history secret scanner on root commit `f9a271b`: 1/1 commit and 5,846 changed lines inspected; zero hard-category hits, zero review hits, and zero stale exceptions. The redacted scan output is recorded in [`history-secret-scan-2026-11-05.json`](history-secret-scan-2026-11-05.json). The documentation-only verification commit is scanned again on the final candidate tip before pushing. No release tag or deployment is created by this audit.
