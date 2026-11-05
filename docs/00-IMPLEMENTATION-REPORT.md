@@ -36,7 +36,7 @@ The tool makes **no network calls**, **uses no LLM** in the evidence path, and
 | `verify/` | `verify_pack.py` | Replay chain + artifact digests + banner checks |
 | `cli.py` | single command surface | `validate-mapping`, `parse-questionnaire`, `build`, `demo`, `verify-pack` |
 
-All modules are pure Python 3.11+ stdlib + pinned `fpdf2==2.8.4` (+ optional
+All modules are pure Python 3.11+ stdlib + pinned `fpdf2==2.8.8` (+ optional
 `openpyxl==3.1.5` for XLSX questionnaires).
 
 ---

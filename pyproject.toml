@@ -16,7 +16,7 @@ requires-python = ">=3.11"
 license = { file = "LICENSE" }
 authors = [{ name = "Hatem (owner decision required)" }]
 dependencies = [
-    "fpdf2==2.8.4",   # pinned pure-Python PDF library; see docs/01-DECISION-LOG.md D-007
+    "fpdf2==2.8.8",   # pinned pure-Python PDF library; see docs/01-DECISION-LOG.md D-007
 ]
 
 [project.optional-dependencies]
@@ -24,7 +24,7 @@ xlsx = ["openpyxl==3.1.5"]
 dev = [
     "pytest==9.1.1",
     "pytest-cov==7.1.0",
-    "fpdf2==2.8.4",
+    "fpdf2==2.8.8",
 ]
 
 [tool.setuptools.packages.find]

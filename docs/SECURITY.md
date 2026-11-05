@@ -31,7 +31,7 @@ Signoff itself is the **Trusted Computing Base (TCB)** — the only code that ru
 
 ### Dependency Security
 
-- Pinned `fpdf2==2.8.4`, `openpyxl==3.1.5` (optional)
+- Pinned `fpdf2==2.8.8`, `openpyxl==3.1.5` (optional)
 - Dev deps: `pytest==9.1.1`, `pytest-cov==7.1.0`
 - No unpinned or floating dependencies
 

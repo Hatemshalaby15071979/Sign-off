@@ -1,4 +1,4 @@
-"""PDF renderer — pinned pure-Python library (fpdf2==2.8.4), same content
+"""PDF renderer — pinned pure-Python library (fpdf2==2.8.8), same content
 as the HTML dossier. No external fonts, no network calls, no images: this
 must render inside an air-gapped container.
 """

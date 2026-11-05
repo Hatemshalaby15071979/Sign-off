@@ -20,7 +20,7 @@ Inputs are a questionnaire (CSV, DOCX, TXT/Markdown, or optional XLSX) and selec
 
 ## 4. Architecture
 
-The Python package separates ingestion, mapping validation, coverage/classification, rendering and verification. Python 3.11+ standard library is used with pinned `fpdf2==2.8.4`; XLSX support is an optional `openpyxl==3.1.5` extra. See [architecture](docs/ARCHITECTURE.md) and [data contract](docs/DATA-CONTRACT.md).
+The Python package separates ingestion, mapping validation, coverage/classification, rendering and verification. Python 3.11+ standard library is used with pinned `fpdf2==2.8.8`; XLSX support is an optional `openpyxl==3.1.5` extra. See [architecture](docs/ARCHITECTURE.md) and [data contract](docs/DATA-CONTRACT.md).
 
 ## 5. Safety and ownership boundary
 

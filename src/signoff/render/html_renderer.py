@@ -183,7 +183,7 @@ the customer supplied. Built fully offline; no model took any decision here.</p>
 <tr><td>Evidence events (chain)</td><td>{len(pack.events)}</td></tr>
 <tr><td>Gap rows</td><td>{len(pack.gaps)}</td></tr>
 <tr><td>Rules / patterns</td><td>{len(pack.rules)}</td></tr>
-<tr><td>Runtime</td><td class="small">Python 3.11 standard library + fpdf2 2.8.4 (offline build)</td></tr>
+<tr><td>Runtime</td><td class="small">Python 3.11 standard library + fpdf2 2.8.8 (offline build)</td></tr>
 </table>
 
 <h2>Coverage (with explicit denominators)</h2>

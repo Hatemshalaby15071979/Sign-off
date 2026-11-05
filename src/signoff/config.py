@@ -38,7 +38,7 @@ OUTPUT_FILES = {
 # Known runtime dependency versions, echoed into every pack for traceability.
 RUNTIME_DEPENDENCIES = {
     "python_standard_library": "3.11+",
-    "fpdf2": "2.8.4",
+    "fpdf2": "2.8.8",
     "openpyxl_optional_extra": "3.1.5 (optional; only for .xlsx questionnaires)",
 }
 

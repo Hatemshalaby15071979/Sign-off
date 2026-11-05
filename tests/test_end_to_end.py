@@ -49,7 +49,7 @@ def test_pack_json_is_self_describing(tmp_path):
         "gap-list.csv", "evidence-events.csv", "oversight-statement.txt"}
     for meta in data["artifacts"].values():
         assert len(meta["sha256"]) == 64 and meta["bytes"] > 0
-    assert data["runtime"]["fpdf2"] == "2.8.4"
+    assert data["runtime"]["fpdf2"] == "2.8.8"
     assert data["not_prove"] and len(data["not_prove"]) >= 6
     assert data["appendix"]["banner"].startswith("Informational cross-reference only")
 

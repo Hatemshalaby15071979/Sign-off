@@ -3,6 +3,19 @@
 All notable changes to Signoff are listed here. The mapping table is not
 contributor-editable (see CONTRIBUTING.md).
 
+## Unreleased
+
+- Fixed: Dockerfile could not build (missing `pyproject.toml` context and demo
+  fixtures) and its offline demo step failed on a root-created output volume.
+  The image now runs from `PYTHONPATH`, copies the demo fixtures, the CI
+  pre-creates its output directory, and the workflow has least-privilege
+  `contents: read` permissions.
+- Security: upgraded pinned `fpdf2` 2.8.4 → 2.8.8. pip-audit reported
+  CVE-2026-114609 (SSRF via image-resource dereferencing) and CVE-2026-114610
+  (SVG `<use>` resource exhaustion) in 2.8.4; Signoff never passes user input
+  to `FPDF.image()`/`write_html()`, but the fixed pin removes the exposure.
+- Added: root `SECURITY.md` (GitHub-discoverable) and `SHIPMENT_READINESS.md`.
+
 ## 0.1.0 — 2026-11-05
 
 Initial release (autonomous build for the owner).
