@@ -1,17 +1,21 @@
-SIGNOFF — LICENSE (default)
+MIT License
 
-Copyright (c) 2026 The Signoff owner.
+Copyright (c) 2026 Hatem Shalaby
 
-Proprietary. All rights reserved.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-License choice is an OWNER DECISION and has NOT been made by any automated
-agent. No open-source licence (MIT, Apache, GPL or otherwise) has been
-selected on the owner's behalf. Until the owner chooses a licence in writing,
-this software may not be copied, modified, distributed, sublicensed or used
-by any party other than the owner.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-This default licence text itself is an autonomous-agent placeholder decision
-and must be replaced by the owner after review with competent counsel of the
-owner's choosing.
-
-Contact: to be filled by the owner.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
