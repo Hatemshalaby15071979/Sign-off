@@ -174,7 +174,7 @@ must match the decided bands exactly — no other numbers on screen.
 Narration: *"Signoff. Answer the questionnaire with a signed evidence pack.
 Offline by design. MIT licensed. Built by Hatem Shalaby in Cairo."*
 Visual: logo/wordmark, the five pipeline blocks collapsing into a single
-sealed-pack icon, then `index.html` URL / contact placeholder and a final
+sealed-pack icon, then `index.html` URL / contact and a final
 frame that holds for 2 s. Footer line small: *"Evidence packs prove internal
 consistency of your records — not certification."*
 
@@ -231,7 +231,6 @@ mp4 goes into the repo or a release later.
 ## Owner checklist (before publishing the video)
 
 - [ ] Watch it once end-to-end (verification gate step 6).
-- [ ] Replace the `owner@example.com` contact in `index.html` with the real
-      contact you want published.
+- [x] Contact in `index.html` set to `[REDACTED_EMAIL]` (2026-11-06).
 - [ ] Decide hosting: GitHub Release asset / LinkedIn / YouTube — then the
       link can be added to `index.html` and `README.md`.

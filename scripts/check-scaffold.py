@@ -19,6 +19,7 @@ Exit 0 = ok, exit 1 = problem (with a printed list).
 from __future__ import annotations
 
 import argparse
+import csv
 import sys
 import tomllib
 from pathlib import Path
@@ -177,7 +178,12 @@ def check_mapping_table_signed(problems: list[str]) -> None:
 
     The owner supplied the first signed mapping on 2026-11-06 (first pilot);
     the pre-owner header-only guard was retired in favour of enforcing
-    signing quality on every row.
+    signing quality on every row. An empty table also fails (fail-closed:
+    no signed evidence definitions means nothing can be built), so this
+    check and tests/test_scaffold.py agree on both the empty and the
+    unsigned state. Rows are parsed with the csv module, matching
+    validate-mapping, so quoted commas or embedded newlines cannot cause a
+    false failure here while the authoritative parser passes.
     """
     path = REPO / "OWNER" / "mapping-table.csv"
     header = "rule_id,pattern_id,source_qid,question,answer_type,evidence_needed,where_to_find_it,if_missing_gap,decided_by,date,verified"
@@ -190,8 +196,11 @@ def check_mapping_table_signed(problems: list[str]) -> None:
         return
     if lines[0].strip() != header:
         problems.append("OWNER/mapping-table.csv header does not match the data contract")
-    for i, line in enumerate(lines[1:], start=2):
-        cells = line.split(",")
+    data_lines = lines[1:]
+    if not data_lines:
+        problems.append("OWNER/mapping-table.csv has no signed rows — owner decisions required")
+    for i, line in enumerate(data_lines, start=2):
+        cells = next(csv.reader([line]))
         # fields: rule_id,pattern_id,source_qid,question,answer_type,evidence_needed,where_to_find_it,if_missing_gap,decided_by,date,verified
         decided_by = cells[-3] if len(cells) >= 3 else ""
         date = cells[-2] if len(cells) >= 2 else ""

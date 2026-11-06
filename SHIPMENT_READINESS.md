@@ -123,7 +123,7 @@ on 2026-11-06; no version tag or GitHub release exists yet.
 
 - `index.html` — single-file marketing page (problem, solution, value,
   engineering philosophy, decided pricing). Contact placeholder
-  `owner@example.com` must be replaced before publishing.
+  `index.html` (contact set 2026-11-06, replacing the example placeholder).
 - `docs/VIDEO-DEMO-PROMPT.md` — autonomous-agent prompt for the 3-minute
   animated demo video; uses only repo files + a self-generated synthetic
   pack, with a hard rule against any real client data on screen.
@@ -166,7 +166,7 @@ Company/tax papers are deferred to first-sale income by owner decision
 at launch:
 
 ```console
-$ # 1. replace owner@example.com in index.html with the real contact
+$ # 1. contact email already set in index.html ([REDACTED_EMAIL])
 $ # 2. final sweep (all green as of 2026-11-06):
 $ python3 scripts/check-scaffold.py && python3 scripts/check-offline.py
 $ PYTHONPATH=src python3 -m pytest -q          # 140 passed
