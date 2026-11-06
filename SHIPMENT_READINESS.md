@@ -60,8 +60,8 @@ All commands run from the repository root on 2026-11-06:
 | Coverage | `PYTHONPATH=src python3 -m pytest --cov=src/signoff --cov-report=term-missing -q` | **88%** total (1485 stmts, 181 missed) |
 | Offline scan | `python3 scripts/check-offline.py` | OK — 41 files, zero network imports/calls/env reads |
 | Scaffold | `python3 scripts/check-scaffold.py` | OK — 116 required files |
-| Determinism | `PYTHONPATH=src python3 scripts/check-determinism.py --out /tmp/opencode/signoff-det` | OK — byte-identical |
-| Demo + verify (host) | `python3 -m signoff demo --out /tmp/opencode/signoff-demo`, then `verify-pack` | Pack built (7 artifacts), `VERIFIED` |
+| Determinism | `PYTHONPATH=src python3 scripts/check-determinism.py --out /tmp/signoff-det` | OK — byte-identical |
+| Demo + verify (host) | `python3 -m signoff demo --out /tmp/signoff-demo`, then `verify-pack` | Pack built (7 artifacts), `VERIFIED` |
 | Docker build | `docker build -t signoff:shipment-audit .` | **Built** (after fix; failed before) |
 | Docker offline demo | `docker run --rm --network none --read-only -v ... signoff:shipment-audit demo --out /out/demo` | Pack built (7 artifacts) |
 | Docker verify | `docker run --rm --network none --read-only ... verify-pack --pack /data` | `VERIFIED` |
@@ -102,9 +102,9 @@ into the operator's user site, not into the repository.
   rules, and no compliance certification exist in this repository.
 
 **Status: locally shipment-ready** (tests, offline, determinism, Docker,
-and dependency checks pass; fixes above committed locally), with the
-hosted-only verifications still open. The owner authorised the GitHub push
-on 2026-11-06; no version tag or GitHub release exists yet.
+and dependency checks pass; fixes above committed locally), with
+hosted-only verifications to run at first push. The owner authorised the
+GitHub push on 2026-11-06; no version tag or GitHub release exists yet.
 
 ### Owner decisions since the audit (2026-11-06)
 
