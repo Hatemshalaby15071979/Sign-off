@@ -104,8 +104,30 @@ into the operator's user site, not into the repository.
 
 **Status: locally shipment-ready** for a first push (tests, offline,
 determinism, Docker, and dependency checks pass; fixes above committed
-locally), with the hosted-only verifications and owner decisions listed here
-still open. Nothing was pushed, published, released, or deployed.
+locally), with the hosted-only verifications still open. Nothing was pushed,
+published, released, or deployed.
+
+### Owner decisions since the audit (2026-11-06)
+
+- **MIT licence adopted** (`LICENSE`) — licence risk cleared before any sale.
+- **Pricing decided** (`OWNER/offer-and-pricing.md`): Egypt EGP 60–90k ·
+  Gulf $2,500–4,000 · Global $3,000–6,000 per assessment; 50/50 terms,
+  annual re-run at 40%. Recorded in `OWNER/DECISIONS-TO-MAKE.md` item 4.
+- **Second client: not required now** (owner decision) — production readiness
+  is proven by the WE pilot; a second client is a post-launch goal.
+- **Legal/tax deferred to first-sale income** (owner is a solo builder with
+  no company yet) — push to GitHub is held until the owner closes this.
+- **Hosted CI:** GitHub Actions is free and unlimited on public repos —
+  verification happens at first push, no paid tier needed.
+
+### Visitor-facing assets (ready for launch)
+
+- `index.html` — single-file marketing page (problem, solution, value,
+  engineering philosophy, decided pricing). Contact placeholder
+  `owner@example.com` must be replaced before publishing.
+- `docs/VIDEO-DEMO-PROMPT.md` — autonomous-agent prompt for the 3-minute
+  animated demo video; uses only repo files + a self-generated synthetic
+  pack, with a hard rule against any real client data on screen.
 
 ## First real pilot pack — WE call centre (2026-11-06)
 
@@ -137,3 +159,28 @@ practitioner at a WE call centre:
 - Production scope is unchanged: this pack evidences one pilot
   organization's records. Licence choice, pricing, legal/tax review, and a
   second client remain open (`OWNER/DECISIONS-TO-MAKE.md` items 2–8).
+
+### Launch sequence — ready to run, deliberately NOT run yet
+
+Blocked by the owner's legal/tax gate (no push until company papers are
+sorted). When the owner says go, in order:
+
+```console
+$ # 1. replace owner@example.com in index.html with the real contact
+$ # 2. final sweep (all green as of 2026-11-06):
+$ python3 scripts/check-scaffold.py && python3 scripts/check-offline.py
+$ PYTHONPATH=src python3 -m pytest -q          # 140 passed
+$ docker build -t signoff:latest .             # builds clean
+$ # 3. push the branch, let hosted CI verify (free on public repos):
+$ git push -u origin audit/shipment-candidate
+$ # 4. tag + release once CI is green:
+$ git tag -a v0.1.0 -m "v0.1.0 — first real pilot pack (10/10 evidenced, VERIFIED)"
+$ git push origin v0.1.0
+$ gh release create v0.1.0 --title "Signoff v0.1.0" --notes-file SHIPMENT_READINESS.md
+$ # 5. optional: attach the 3-min video (out/video/signoff-demo-3min.mp4)
+$ #    produced by following docs/VIDEO-DEMO-PROMPT.md
+```
+
+Nothing above has been executed. A remote (`origin` → `github.com/Hatemshalaby15071979/Sign-off`) is
+configured, but **nothing has ever been pushed** — the remote contains no
+commits from this work. Verify with `git log origin/audit/shipment-candidate..HEAD` (or a fresh `git ls-remote`) before assuming state.

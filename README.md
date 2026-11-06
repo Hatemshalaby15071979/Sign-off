@@ -47,6 +47,18 @@ The demo uses synthetic fixtures and every artifact is visibly stamped
 `SIMULATION_DISCLOSURE` — *"Synthetic demonstration data. Not evidence. Not a
 client record. Not for submission."*
 
+## For visitors: marketing page & demo video
+
+- **[`index.html`](index.html)** — the plain-language landing page: the
+  problem, how Signoff solves it, why it's worth the money, the engineering
+  philosophy, and the decided pricing bands. Open it in any browser; it is a
+  single self-contained file with no external assets.
+- **[`docs/VIDEO-DEMO-PROMPT.md`](docs/VIDEO-DEMO-PROMPT.md)** — a complete,
+  self-contained prompt for an agent to autonomously produce the 3-minute
+  animated demo video (scene-by-scene narration, screenshot list, render
+  spec, and a verification gate). It builds its own synthetic pack for
+  screenshots — real client data is forbidden by construction.
+
 ## Install
 
 ```console
@@ -64,4 +76,4 @@ Full implementation report: [`REPORT.md`](REPORT.md). Architecture:
 `docs/ARCHITECTURE.md`. Owner handoff: `docs/03-HANDOFF-TO-OWNER.md`.
 Decision log: `docs/01-DECISION-LOG.md`.
 
-**Status: v0.1.0 — a document factory, with a first real pilot pack built 2026-11-06** (WE call centre: 10/10 questions Yes with evidence, 0 gaps, `VERIFIED`; client data kept outside this repository; Oversight Statement signed by the owner by authorisation of the named accountable person). No priced offer, licence choice, or the remaining owner decisions in `OWNER/DECISIONS-TO-MAKE.md` items 2–8 exist in this repository yet.
+**Status: v0.1.0 — locally shipment-ready, production readiness proven on a real pilot.** MIT licence adopted and pricing decided (Egypt / Gulf / Global bands in `OWNER/offer-and-pricing.md`, owner-confirmed 2026-11-06); first real pack built 2026-11-06 (10/10 questions Yes with evidence, 0 gaps, `VERIFIED`; client data kept outside this repository; Oversight Statement signed by the owner by authorisation of the named accountable person). Remaining owner items: company/tax papers (`OWNER/DECISIONS-TO-MAKE.md` item 5, funded from first-sale income), contact placeholder in `index.html`, and the push decision itself — nothing has been pushed, released, or tagged.

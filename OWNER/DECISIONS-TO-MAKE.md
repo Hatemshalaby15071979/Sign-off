@@ -30,11 +30,15 @@ whom to consult. Work top to bottom; items 1–4 gate real client work.
 - Conservative default shipped: `statement.py` renders a blank named-person
   field, signature line, date line. Signoff never signs.
 
-## 4. Price and scope — `OWNER/offer-and-pricing.md`
-- Conservative default shipped by the agent: **none**. The agent set no
-  price, no terms, no T&A. Only the owner sets price.
-- Note for the owner: the fixed-price, two-week, offline, no-integration
-  assessment shape comes from the product strategy; the number is yours.
+## 4. Price and scope — `OWNER/offer-and-pricing.md` ✅ DECIDED (owner, 2026-11-06)
+- **Fixed price per assessment:** Egypt EGP 60,000–90,000 · Gulf
+  (UAE/KSA/Qatar) $2,500–4,000 · Global (EU/UK) $3,000–6,000.
+- Terms: 50% upfront / 50% on pack delivery; annual re-run at 40% of the
+  assessment price; two-week engagement, offline, no integration. WE pilot
+  delivered free as the reference case; no discounting below these bands.
+- Scope: one questionnaire + signed mapping + built/verified pack per
+  assessment. Company/tax papers remain open (item 5) and are funded from
+  first-sale income.
 
 ## 5. Company / tax — `OWNER/company-and-tax.md`
 - A **local Egyptian accountant** must confirm: exported-services vs software

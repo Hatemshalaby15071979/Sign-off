@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Signoff — the client asks how AI touched their customers. You answer with a signed evidence pack, built offline on your own data, in days not weeks.">
+<title>Signoff — Answer the AI questionnaire with a signed evidence pack</title>
+<style>
+:root{--ink:#10192b;--muted:#5b6a82;--line:#dfe6f1;--bg:#f7f9fc;--panel:#fff;--accent:#1f6feb;--ok:#0f7b45;--warn:#b45309}
+*{box-sizing:border-box}
+body{margin:0;font:17px/1.65 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+.wrap{max-width:920px;margin:0 auto;padding:0 22px}
+header{background:linear-gradient(160deg,#0d1729,#16294a);color:#eef4ff;padding:64px 0 56px}
+header h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:0 0 14px}
+header p{font-size:19px;color:#c4d3ee;max-width:640px;margin:0 0 26px}
+.cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:13px 26px;border-radius:8px;font-weight:600}
+.ghost{background:transparent;border:1px solid #4b649a;color:#dce8ff}
+main section{padding:44px 0;border-bottom:1px solid var(--line)}
+h2{font-size:26px;margin:0 0 12px}
+.cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px}
+.card h3{margin:0 0 6px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:15.5px}
+.stat{background:#0d1729;color:#eef4ff;border-radius:12px;padding:22px;text-align:center}
+.stat b{display:block;font-size:30px}
+.stat span{color:#9fb4d9;font-size:14px}
+blockquote{margin:0;padding:18px 22px;background:#fff8ec;border-left:4px solid var(--warn);border-radius:0 10px 10px 0}
+blockquote cite{display:block;margin-top:8px;font-style:normal;color:var(--muted);font-size:14.5px}
+.flow{counter-reset:s;display:grid;gap:14px}
+.flow li{list-style:none;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px 14px 56px;position:relative}
+.flow li::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:12px;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;text-align:center;line-height:28px;font-weight:700;font-size:15px}
+.price{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.price .card{border-top:4px solid var(--accent)}
+.price b{font-size:26px}
+.discl{font-size:14.5px;color:var(--muted)}
+footer{padding:34px 0 56px;color:var(--muted);font-size:14.5px}
+code{background:#eef2f8;padding:2px 6px;border-radius:5px;font-size:92%}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Your client asks: “How did AI touch our customers?”<br>You answer with a signed evidence pack.</h1>
+    <p>Signoff is an offline document factory. It reads the questionnaire you already received and the CSV exports you already own, and produces a signed, hash-chained dossier that says exactly what you can prove — and names the gaps you can’t.</p>
+    <a class="cta" href="#how">See how it works</a>
+    <a class="cta ghost" href="#pilot">See the real pilot</a>
+  </div>
+</header>
+<main class="wrap">
+
+<section>
+  <h2>The problem, in plain words</h2>
+  <blockquote>
+    “A bank sends you a 40-question AI governance questionnaire. Every answer must point to a real record — an approval log, an audit event, a named owner. Your team has the records, scattered in six spreadsheets. So what happens? Three weeks of copy-pasting, a stale PDF, a guess here or there, and one day an answer you can’t back up.”
+    <cite>— the reality inside every BPO, outsourcer, and AI vendor serving regulated clients</cite>
+  </blockquote>
+  <div class="cards" style="margin-top:18px">
+    <div class="stat"><b>3 weeks</b><span>typical time to hand-answer one questionnaire</span></div>
+    <div class="stat"><b>0</b><span>numbers Signoff invents — the tool refuses to guess</span></div>
+    <div class="stat"><b>10/10</b><span>questions evidenced in the first real pilot pack (Nov 2026)</span></div>
+  </div>
+</section>
+
+<section id="how">
+  <h2>How Signoff solves it</h2>
+  <ol class="flow">
+    <li><b>Parse the questionnaire</b> — CSV, DOCX, XLSX or text. Every question gets an ID, nothing is paraphrased.</li>
+    <li><b>You sign the mapping</b> — a human decides, per question, which export file and columns count as proof. The machine never writes this table.</li>
+    <li><b>Build offline</b> — on your own machine, with your own CSVs. No server, no API, no LLM in the evidence path.</li>
+    <li><b>Get the pack</b> — dossier (HTML/PDF), answered questionnaire, gap list, hash-chained events, and a blank-signature Oversight Statement for a named human.</li>
+    <li><b>Verify in one command</b> — <code>verify-pack</code> replays the chain: every artifact matches its digest or the pack is rejected.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Why it’s worth the money</h2>
+  <div class="cards">
+    <div class="card"><h3>Days, not weeks</h3><p>What used to cost a senior consultant three weeks of copy-pasting now takes a two-week fixed-price engagement — questionnaire in, signed pack out.</p></div>
+    <div class="card"><h3>You never sign a lie</h3><p>Where the data doesn’t prove the answer, the pack says <b>No</b> or <b>gap</b> and names the exact CSV that would fix it. The gap list is your roadmap, not your shame.</p></div>
+    <div class="card"><h3>It runs offline</h3><p>Nothing leaves the client’s machine. The security questionnaire has no subject to question — no network, no telemetry, no credentials, no model.</p></div>
+    <div class="card"><h3>Repeat business</h3><p>Same mapping, new exports: the next questionnaire is a re-run. Annual refresh at 40% of the original price.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>The engineering philosophy</h2>
+  <div class="cards">
+    <div class="card"><h3>Fail closed, never guess</h3><p>Unmapped question → <code>UNMAPPED</code>, never a paraphrased answer. Unknown file → parse error, not silent drop. Missing timestamp → refusal to invent time.</p></div>
+    <div class="card"><h3>Humans sign, machines prove</h3><p>Every mapping row carries a name, a date, and a verification. The Oversight Statement is blank by design — a machine must never produce a signature.</p></div>
+    <div class="card"><h3>Determinism is a feature</h3><p>Injected clock, canonical JSON, SHA-256 hash chain. The same inputs always produce byte-identical artifacts, in front of an auditor.</p></div>
+    <div class="card"><h3>Small and auditable</h3><p>Python standard library plus one pinned PDF library. Every dependency hash-locked; the whole tool is reviewable in an afternoon.</p></div>
+  </div>
+</section>
+
+<section id="pilot">
+  <h2>What a real pack looks like</h2>
+  <p>Built in the first pilot (WE call centre, November 2026): a real practitioner’s 10 answers, eight anonymized exports, ten signed mapping rules — <b>10 of 10 questions evidenced, zero gaps, hash chain verified</b>. During the pilot the tool pushed back twice: stale 2025 audit rows scored <b>No</b> (outside the 90-day window), and three of four providers passed the no-training contract check until the client remediated the fourth. That refusal behavior is the product.</p>
+  <p class="discl">Demo artifacts carry a <b>SIMULATION_DISCLOSURE</b> stamp. Evidence packs establish internal consistency of your supplied records; they are not compliance certifications and never replace a lawyer, auditor, or human decision.</p>
+</section>
+
+<section>
+  <h2>Pricing</h2>
+  <div class="price">
+    <div class="card"><h3>Egypt</h3><b>EGP 60–90k</b><p>per assessment, fixed price</p></div>
+    <div class="card"><h3>Gulf (UAE · KSA · Qatar)</h3><b>$2,500–4,000</b><p>per assessment, fixed price</p></div>
+    <div class="card"><h3>Global (EU / UK)</h3><b>$3,000–6,000</b><p>per assessment, fixed price</p></div>
+  </div>
+  <p class="discl">50% upfront, 50% on delivery · annual re-run at 40% · two-week engagement, offline, no integration.</p>
+  <a class="cta" href="mailto:owner@example.com">Request an assessment →</a>
+</section>
+
+</main>
+<footer class="wrap">
+  Signoff v0.1.0 · MIT licensed · offline by design · built by Hatem Shalaby (Cairo). Replace <code>owner@example.com</code> with your contact before publishing.
+</footer>
+</body>
+</html>

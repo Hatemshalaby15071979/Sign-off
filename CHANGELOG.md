@@ -5,6 +5,19 @@ contributor-editable (see CONTRIBUTING.md).
 
 ## Unreleased
 
+- **Owner decisions closed: licence + price (2026-11-06).** `LICENSE` set to
+  MIT (© 2026 Hatem Shalaby); pricing decided and recorded in
+  `OWNER/offer-and-pricing.md` — Egypt EGP 60–90k, Gulf $2,500–4,000,
+  Global $3,000–6,000 per fixed-price assessment (50/50 terms, annual re-run
+  at 40%). `OWNER/DECISIONS-TO-MAKE.md` items 1 and 4 marked decided.
+- **Visitor-facing assets.** New `index.html` (single-file, no external
+  assets): plain-language problem → solution → value → engineering philosophy
+  → decided pricing. New `docs/VIDEO-DEMO-PROMPT.md`: a self-contained prompt
+  for an agent to autonomously render the 3-minute animated demo video —
+  scene-by-scene verbatim narration, synthetic-pack screenshot list, render
+  spec (1080p30 H.264 + SRT captions), and a verification gate that forbids
+  real client data in any frame.
+
 - **First real client pack (WE pilot, 2026-11-06).** A practitioner at a WE call centre answered a 10-question blank form and supplied anonymized exports (QA review, audit events, provider inventory, roles, agent identity, escalations, training, incidents). The owner signed 10 mapping rules (`OWNER/mapping-table.csv`, `Hatem Shalaby`, 2026-11-06) and the resulting pack built offline: **10/10 Yes with evidence, 0 gaps, `VERIFIED`** (pack `PK-278084a109d79591`, as-of 2026-11-07). Client data is held **outside** the repository and is not committed. The Oversight Statement records that the owner was authorised by the named accountable person ([REDACTED_PERSON], AI OPS Engineer) to sign on his behalf — recorded 2026-11-06.
 - Scaffold/test guards retired: the pre-owner "header-only mapping table" assertion now enforces *signed* rows (named owner, date, verified=yes).
 - Learned from the pilot (operator notes): exports may arrive as Excel (`.xlsx` content under `.csv` names) — convert to pure CSV first; `status` values must be `yes` (not `Completed`); escalations validate against an authorised-supervisor roster that must exist in the roles export; coverage window is 90 days, so stale exports (last year) read as No/N/A, not Yes.

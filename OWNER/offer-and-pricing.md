@@ -1,8 +1,20 @@
 <<<OWNER — DO NOT AUTO-FILL — HUMAN DECISION REQUIRED>>>
 
+# PRICING DECIDED (owner confirmed, 2026-11-06)
+
+| Market | Fixed price per assessment |
+| ------ | -------------------------- |
+| Egypt (local BPO/CX) | EGP 60,000–90,000 |
+| Gulf (UAE/KSA/Qatar BPO) | $2,500–4,000 |
+| Global (EU/UK BPO serving banks/telcos) | $3,000–6,000 |
+
+Terms: 50% upfront, 50% on pack delivery. Annual re-run (refreshed pack, same
+mapping) at 40% of the assessment price. First pilot (WE) delivered free as
+the reference case; do not discount below these bands afterwards.
+
 To be written by the owner only.
 
-## Agent recommendation (2026-11-06) — owner to confirm, not decided
+## PRICING DECIDED — owner confirmed 2026-11-06
 
 Pricing model: **fixed-price offline assessment** (two weeks, no integration,
 deliverable = signed evidence pack). Three bands, per market:
