@@ -14,6 +14,7 @@
 | D-010 | `SIMULATION_DISCLOSURE` watermark on every demo artifact |
 | D-011 | State machine states (`AI-proposed`, `gate-blocked`, `human-approved`, `escalated`, `unlogged`) |
 | D-012 | 12 `EVIDENCE_SPECS` with explicit denominators |
+| D-013 | Demo video cut reduced from 3 minutes (180 s) to 2 minutes (120 s ±5 s) for social-first distribution; output files renamed `signoff-demo-2min.*`; `docs/VIDEO-DEMO-PROMPT.md`, `README.md`, `SHIPMENT_READINESS.md`, `CHANGELOG.md` updated. |
 
 ---
 

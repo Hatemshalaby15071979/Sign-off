@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signoff — 2-minute demo — S2 What Signoff is</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; margin: 0; overflow: hidden; }
+  body { background: #0d1729; color: #ffffff; font-family: 'Lato', 'DejaVu Sans', sans-serif; }
+  .container { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 0 60px; text-align: center; }
+  .badge { display: inline-block; background: #1f6feb; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 18px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 40px; box-shadow: 0 0 24px rgba(31,111,235,0.35); }
+  h1 { font-size: 48px; font-weight: 900; line-height: 1.15; margin-bottom: 32px; max-width: 1100px; }
+  .sub { font-size: 22px; color: #9fb3c8; max-width: 1000px; line-height: 1.6; margin-bottom: 50px; }
+  .pipeline { display: flex; gap: 18px; align-items: center; justify-content: center; margin-top: 40px; }
+  .block { background: #10192b; border: 2px solid #1f6feb; border-radius: 10px; padding: 20px 28px; min-width: 150px; text-align: center; }
+  .block .num { font-size: 14px; color: #1f6feb; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .block .name { font-size: 20px; font-weight: 700; }
+  .arrow { color: #9fb3c8; font-size: 28px; font-weight: 700; }
+  .lock { position: relative; width: 46px; height: 36px; margin: 30px auto 0; border-radius: 6px; background: #0f7b45; }
+  .lock::before { content: ""; position: absolute; left: 10px; top: -19px; width: 18px; height: 22px; border: 5px solid #0f7b45; border-bottom: 0; border-radius: 14px 14px 0 0; }
+  .lock::after { content: ""; position: absolute; left: 21px; top: 10px; width: 4px; height: 12px; border-radius: 3px; background: #ffffff; }
+  .badge2 { margin-top: 26px; font-size: 18px; color: #0f7b45; font-weight: 700; background: rgba(15,123,69,0.15); border: 1px solid #0f7b45; padding: 10px 20px; border-radius: 6px; display: inline-block; }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="badge">SIGNOFF IS AN OFFLINE DOCUMENT FACTORY</div>
+    <h1>You give it the questionnaire<br>and the CSV exports you already own.</h1>
+    <div class="sub">It gives back a signed, hash-chained evidence pack that says exactly what you can prove —<br>and names the gaps you can't. It runs on your own machine. Nothing leaves the building.</div>
+    <div class="pipeline">
+      <div class="block"><div class="num">1</div><div class="name">Parse</div></div>
+      <div class="arrow">→</div>
+      <div class="block"><div class="num">2</div><div class="name">Sign mapping</div></div>
+      <div class="arrow">→</div>
+      <div class="block"><div class="num">3</div><div class="name">Build</div></div>
+      <div class="arrow">→</div>
+      <div class="block"><div class="num">4</div><div class="name">Pack</div></div>
+      <div class="arrow">→</div>
+      <div class="block"><div class="num">5</div><div class="name">Verify</div></div>
+    </div>
+    <div class="lock" aria-hidden="true"></div>
+    <div class="badge2">0 NETWORK CALLS · OFFLINE BY DESIGN</div>
+  </div>
+</body>
+</html>

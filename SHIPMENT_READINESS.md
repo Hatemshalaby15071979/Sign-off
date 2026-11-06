@@ -124,7 +124,7 @@ GitHub push on 2026-11-06; no version tag or GitHub release exists yet.
 - `index.html` — single-file marketing page (problem, solution, value,
   engineering philosophy, decided pricing). Contact placeholder
   `index.html` (contact set 2026-11-06, replacing the example placeholder).
-- `docs/VIDEO-DEMO-PROMPT.md` — autonomous-agent prompt for the 3-minute
+- `docs/VIDEO-DEMO-PROMPT.md` — autonomous-agent prompt for the 2-minute
   animated demo video; uses only repo files + a self-generated synthetic
   pack, with a hard rule against any real client data on screen.
 
@@ -177,7 +177,7 @@ $ # 4. tag + release once CI is green:
 $ git tag -a v0.1.0 -m "v0.1.0 — first real pilot pack (10/10 evidenced, VERIFIED)"
 $ git push origin v0.1.0
 $ gh release create v0.1.0 --title "Signoff v0.1.0" --notes-file SHIPMENT_READINESS.md
-$ # 5. optional: attach the 3-min video (out/video/signoff-demo-3min.mp4)
+$ # 5. optional: attach the 2-min video (out/video/signoff-demo-2min.mp4)
 $ #    produced by following docs/VIDEO-DEMO-PROMPT.md
 ```
 

@@ -13,10 +13,12 @@ contributor-editable (see CONTRIBUTING.md).
 - **Visitor-facing assets.** New `index.html` (single-file, no external
   assets): plain-language problem → solution → value → engineering philosophy
   → decided pricing. New `docs/VIDEO-DEMO-PROMPT.md`: a self-contained prompt
-  for an agent to autonomously render the 3-minute animated demo video —
+  for an agent to autonomously render the 2-minute animated demo video —
   scene-by-scene verbatim narration, synthetic-pack screenshot list, render
   spec (1080p30 H.264 + SRT captions), and a verification gate that forbids
-  real client data in any frame.
+  real client data in any frame. Runtime decision: 2 minutes (120 s ±5 s)
+  instead of 3 minutes, for social-first distribution (owner decision,
+  2026-11-06).
 
 - **First real client pack (anonymized pilot, 2026-11-06).** A practitioner at a MENA call centre answered a 10-question blank form and supplied anonymized exports (QA review, audit events, provider inventory, roles, agent identity, escalations, training, incidents). The owner signed 10 mapping rules (`OWNER/mapping-table.csv`, `Hatem Shalaby`, 2026-11-06) and the resulting pack built offline: **10/10 Yes with evidence, 0 gaps, `VERIFIED`** (pack `PK-278084a109d79591`, as-of 2026-11-07). Client data is held **outside** the repository and is not committed. The Oversight Statement records that the owner was authorised by the client's named accountable person (AI OPS Engineer, name withheld) to sign on his behalf — recorded 2026-11-06.
 - **Client identity anonymized pre-push (owner decision, 2026-11-06):** organization and contact names removed from all public docs; no export rows were ever committed.

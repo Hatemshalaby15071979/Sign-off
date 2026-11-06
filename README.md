@@ -54,7 +54,7 @@ client record. Not for submission."*
   philosophy, and the decided pricing bands. Open it in any browser; it is a
   single self-contained file with no external assets.
 - **[`docs/VIDEO-DEMO-PROMPT.md`](docs/VIDEO-DEMO-PROMPT.md)** — a complete,
-  self-contained prompt for an agent to autonomously produce the 3-minute
+  self-contained prompt for an agent to autonomously produce the 2-minute
   animated demo video (scene-by-scene narration, screenshot list, render
   spec, and a verification gate). It builds its own synthetic pack for
   screenshots — real client data is forbidden by construction.

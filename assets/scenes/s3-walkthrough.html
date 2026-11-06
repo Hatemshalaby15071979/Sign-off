@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signoff — 2-minute demo — S3 Live walkthrough</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; margin: 0; overflow: hidden; }
+  body { background: #0d1729; color: #ffffff; font-family: 'Lato', 'DejaVu Sans', sans-serif; }
+  .container { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr); gap: 56px; align-items: center; height: 100%; padding: 60px 100px; text-align: left; }
+  .copy { min-width: 0; }
+  .badge { display: inline-block; background: #1f6feb; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 18px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 30px; box-shadow: 0 0 24px rgba(31,111,235,0.35); }
+  h1 { font-size: 38px; font-weight: 900; line-height: 1.15; margin-bottom: 24px; }
+  .sub { font-size: 18px; color: #9fb3c8; line-height: 1.6; margin-bottom: 30px; }
+  .verified { font-size: 44px; font-weight: 900; color: #0f7b45; letter-spacing: 2px; margin-top: 10px; }
+  .glow { text-shadow: 0 0 20px rgba(15,123,69,0.5); }
+  .cmd { background: #10192b; border: 1px solid #1f6feb; border-radius: 8px; padding: 14px 18px; font-family: 'DejaVu Sans Mono', monospace; font-size: 14px; color: #9fb3c8; margin-bottom: 8px; }
+  .cmd .prompt { color: #1f6feb; }
+  .preview { height: 520px; overflow: hidden; border: 8px solid #10192b; border-radius: 12px; background: #ffffff; box-shadow: 0 24px 70px rgba(0,0,0,0.4); }
+  .windowbar { height: 30px; background: #10192b; border-bottom: 1px solid #31425a; }
+  .preview img { display: block; width: 100%; height: auto; }
+  .disclosure { margin-top: 20px; color: #e89c3c; font-size: 13px; font-weight: 700; letter-spacing: 0.3px; }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="copy">
+      <div class="badge">LIVE WALKTHROUGH — SYNTHETIC PACK</div>
+      <h1>One command builds the pack.<br>Verify checks every artifact.</h1>
+      <div class="sub">A dossier, an answered questionnaire, a gap list, and hash-chained evidence events — built offline from the records you already own.</div>
+      <div class="cmd"><span class="prompt">$</span> python -m signoff demo --out out/demo</div>
+      <div class="cmd"><span class="prompt">$</span> python -m signoff verify-pack --pack out/demo</div>
+      <div class="verified glow">VERIFIED</div>
+      <div class="disclosure">SYNTHETIC DEMONSTRATION DATA · NOT EVIDENCE<br>Evidence proves internal consistency — not certification.</div>
+    </div>
+    <div class="preview" aria-label="Synthetic Signoff dossier screenshot">
+      <div class="windowbar"></div>
+      <img src="../png/dossier.png" alt="Synthetic demonstration dossier with a visible simulation disclosure">
+    </div>
+  </div>
+</body>
+</html>

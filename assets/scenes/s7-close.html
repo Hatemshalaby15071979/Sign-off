@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signoff — 2-minute demo — S7 Close</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; margin: 0; overflow: hidden; }
+  body { background: #0d1729; color: #ffffff; font-family: 'Lato', 'DejaVu Sans', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .badge { display: inline-block; background: #1f6feb; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 18px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 30px; box-shadow: 0 0 24px rgba(31,111,235,0.35); }
+  h1 { font-size: 52px; font-weight: 900; line-height: 1.15; margin-bottom: 22px; max-width: 1100px; }
+  .sub { font-size: 22px; color: #9fb3c8; max-width: 900px; line-height: 1.6; margin-bottom: 34px; }
+  .seal { display: flex; align-items: center; justify-content: center; gap: 18px; height: 88px; margin: 20px 0; }
+  .package { position: relative; width: 76px; height: 64px; background: #b98246; clip-path: polygon(0 20%, 50% 0, 100% 20%, 100% 100%, 0 100%); }
+  .package::before { content: ""; position: absolute; left: 34px; top: 3px; width: 9px; height: 61px; background: #e4bd8c; }
+  .check { position: relative; width: 64px; height: 64px; border-radius: 10px; background: #0f7b45; }
+  .check::after { content: ""; position: absolute; left: 19px; top: 15px; width: 20px; height: 31px; border: solid #ffffff; border-width: 0 7px 7px 0; border-radius: 2px; transform: rotate(45deg); }
+  .disclaimer { font-size: 14px; color: #6b83a0; margin-top: 34px; max-width: 1100px; line-height: 1.6; border-top: 1px solid #1f6feb; padding-top: 20px; }
+  .contact { font-size: 16px; color: #1f6feb; font-weight: 700; margin-top: 14px; }
+</style>
+</head>
+<body>
+  <div class="badge">SIGNOFF — CLOSE</div>
+  <div class="seal" aria-hidden="true"><span class="package"></span><span class="check"></span></div>
+  <h1>Answer the questionnaire<br>with a signed evidence pack.</h1>
+  <div class="sub">Offline by design. MIT licensed. Built by Hatem Shalaby in Cairo.</div>
+  <div class="contact">[REDACTED_EMAIL]</div>
+  <div class="disclaimer">Evidence packs prove internal consistency of your records — not certification.</div>
+</body>
+</html>

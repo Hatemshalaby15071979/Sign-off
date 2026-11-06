@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signoff — Thumbnail</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1280px; height: 720px; margin: 0; overflow: hidden; }
+  body { background: #0d1729; color: #ffffff; font-family: 'Lato', 'DejaVu Sans', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .seal { display: flex; align-items: center; justify-content: center; gap: 18px; height: 104px; margin-bottom: 24px; }
+  .package { position: relative; width: 90px; height: 76px; background: #b98246; clip-path: polygon(0 20%, 50% 0, 100% 20%, 100% 100%, 0 100%); }
+  .package::before { content: ""; position: absolute; left: 41px; top: 4px; width: 10px; height: 72px; background: #e4bd8c; }
+  .check { position: relative; width: 76px; height: 76px; border-radius: 12px; background: #0f7b45; }
+  .check::after { content: ""; position: absolute; left: 23px; top: 18px; width: 23px; height: 37px; border: solid #ffffff; border-width: 0 8px 8px 0; border-radius: 2px; transform: rotate(45deg); }
+  h1 { font-size: 48px; font-weight: 900; line-height: 1.2; margin-bottom: 16px; max-width: 1000px; }
+  .sub { font-size: 24px; color: #9fb3c8; max-width: 1000px; line-height: 1.4; }
+</style>
+</head>
+<body>
+  <div class="seal" aria-hidden="true"><span class="package"></span><span class="check"></span></div>
+  <h1>10/10 evidenced.<br>0 gaps. Offline.</h1>
+  <div class="sub">Signoff — signed evidence packs, built offline.</div>
+</body>
+</html>
