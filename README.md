@@ -64,6 +64,4 @@ Full implementation report: [`REPORT.md`](REPORT.md). Architecture:
 `docs/ARCHITECTURE.md`. Owner handoff: `docs/03-HANDOFF-TO-OWNER.md`.
 Decision log: `docs/01-DECISION-LOG.md`.
 
-**Status: v0.1.0 — a document factory. No real client data, no signed rules,
-no priced offer exist anywhere in this repository; those are owner decisions
-(see `OWNER/DECISIONS-TO-MAKE.md`).**
+**Status: v0.1.0 — a document factory, with a first real pilot pack built 2026-11-06** (WE call centre: 10/10 questions Yes with evidence, 0 gaps, `VERIFIED`; client data kept outside this repository; Oversight Statement signed by the owner by authorisation of the named accountable person). No priced offer, licence choice, or the remaining owner decisions in `OWNER/DECISIONS-TO-MAKE.md` items 2–8 exist in this repository yet.

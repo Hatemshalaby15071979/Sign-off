@@ -29,11 +29,16 @@ def test_check_offline_scan_exit_zero():
     assert result.returncode == 0, result.stdout + result.stderr
 
 
-def test_owner_mapping_table_is_header_only():
+def test_owner_mapping_table_rows_are_signed():
+    """Signed rows must carry a named owner, a date, and verified=yes."""
+    import csv
     path = REPO / "OWNER" / "mapping-table.csv"
-    lines = [ln for ln in path.read_text(encoding="utf-8").splitlines() if ln.strip()]
-    assert len(lines) == 1, "OWNER/mapping-table.csv must stay header-only"
-    assert lines[0].startswith("rule_id,")
+    rows = [r for r in csv.DictReader(path.read_text(encoding="utf-8").splitlines()) if any((v or "").strip() for v in r.values())]
+    assert rows, "OWNER/mapping-table.csv has no signed rows — owner decisions pending"
+    for r in rows:
+        assert r["decided_by"].strip() and r["decided_by"].strip() != "OWNER_PENDING", f"unsigned row {r['rule_id']}"
+        assert r["date"].strip(), f"dateless row {r['rule_id']}"
+        assert r["verified"].strip() == "yes", f"unverified row {r['rule_id']}"
 
 
 def test_owner_files_begin_with_marker():

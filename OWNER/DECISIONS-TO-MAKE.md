@@ -4,11 +4,13 @@ These are the decisions an autonomous agent must never make. Each entry names
 the owner-only file, a conservative default already shipped in the code, and
 whom to consult. Work top to bottom; items 1–4 gate real client work.
 
-## 1. What counts as evidence — `OWNER/mapping-table.csv`
+## 1. What counts as evidence — `OWNER/mapping-table.csv` ✅ DONE for the WE pilot (2026-11-06)
 - Decision: for each question in a real client questionnaire, which file +
   columns + condition constitute proof.
-- Conservative default shipped: header-only file; template examples all
-  `decided_by=OWNER_PENDING`, `verified=no`.
+- WE pilot status: 10 rows signed by Hatem Shalaby (2026-11-06), all
+  `verified=yes`; resulting pack 10/10 Yes, `VERIFIED`. New clients need
+  their own signed rows — add them per `docs/MAPPING-TABLE-GUIDE.md`; the
+  scaffold now enforces signing quality (no more header-only state).
 - Hard rule: sign each rule with your own name in `decided_by` and a real
   date; set `verified=yes` only after you verified the columns named in
   `evidence_needed` exist in the actual export. Never let a model write a

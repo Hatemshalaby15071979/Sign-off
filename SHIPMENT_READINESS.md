@@ -106,3 +106,34 @@ into the operator's user site, not into the repository.
 determinism, Docker, and dependency checks pass; fixes above committed
 locally), with the hosted-only verifications and owner decisions listed here
 still open. Nothing was pushed, published, released, or deployed.
+
+## First real pilot pack — WE call centre (2026-11-06)
+
+After the audit above, the owner completed the human-owner track with a real
+practitioner at a WE call centre:
+
+- The practitioner answered a 10-question blank form (4 Yes, 3 Partly, 2 No in
+  the gaps round, then the remaining exports arrived) and supplied anonymized
+  exports: QA review, audit events, provider inventory, roles/accountability,
+  agent-identity log, escalations, training records, incident SLA log.
+- The owner signed 10 mapping rules in `OWNER/mapping-table.csv`
+  (`decided_by=Hatem Shalaby`, `date=2026-11-06`, `verified=yes` for all).
+  The scaffold/test guards were updated accordingly: the pre-owner
+  "header-only" assertion now enforces signed rows. Full suite: **140 passed**.
+- Resulting pack (built offline, as-of 2026-11-07): **10/10 Yes with
+  evidence, 0 gap rows, `VERIFIED`** (`PK-278084a109d79591`). Intermediate
+  states were honest: stale 2025 audit rows read No (outside the 90-day
+  window), `Completed` training statuses read No, and a 3-provider
+  no-training gap (Provider C) was flagged until the client remediated it.
+- **Authorization record:** the owner states he was authorised by the named
+  accountable person ([REDACTED_PERSON], AI OPS Engineer) to sign the Oversight
+  Statement on his behalf. Recorded 2026-11-06.
+- **Data boundary:** all client questionnaire data and exports are held
+  **outside** this repository (operator's local `/tmp` only) and are not
+  committed. `incident_register` was reconstructed verbatim from the
+  dossier's evidence source table because the original file never arrived
+  on disk; replace it with the original from the client before any external
+  use.
+- Production scope is unchanged: this pack evidences one pilot
+  organization's records. Licence choice, pricing, legal/tax review, and a
+  second client remain open (`OWNER/DECISIONS-TO-MAKE.md` items 2–8).

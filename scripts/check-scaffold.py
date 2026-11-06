@@ -9,7 +9,7 @@ code), and for the completed tree when run with no argument:
 2. No forbidden placeholder tokens in src/ or scripts/ (TODO, FIXME, pass,
    NotImplementedError, bare ellipsis markers).
 3. Every OWNER-only file begins with the exact ownership marker line.
-4. OWNER/mapping-table.csv is header-only (no data rows).
+4. OWNER/mapping-table.csv rows are all signed (named owner, date, verified=yes).
 5. Optional-binary-path files that depend on an extra are only demanded when
    present-checkable fixtures exist.
 
@@ -172,7 +172,13 @@ def check_owner_markers(problems: list[str]) -> None:
             problems.append(f"{rel}: does not begin with the owner marker line")
 
 
-def check_mapping_table_header_only(problems: list[str]) -> None:
+def check_mapping_table_signed(problems: list[str]) -> None:
+    """Every data row must be signed: named owner, date, verified=yes.
+
+    The owner supplied the first signed mapping on 2026-11-06 (WE pilot);
+    the pre-owner header-only guard was retired in favour of enforcing
+    signing quality on every row.
+    """
     path = REPO / "OWNER" / "mapping-table.csv"
     header = "rule_id,pattern_id,source_qid,question,answer_type,evidence_needed,where_to_find_it,if_missing_gap,decided_by,date,verified"
     if not path.exists():
@@ -184,9 +190,18 @@ def check_mapping_table_header_only(problems: list[str]) -> None:
         return
     if lines[0].strip() != header:
         problems.append("OWNER/mapping-table.csv header does not match the data contract")
-    if len(lines) > 1:
-        problems.append(
-            f"OWNER/mapping-table.csv has {len(lines) - 1} data rows — owner-only; agents must not fill it")
+    for i, line in enumerate(lines[1:], start=2):
+        cells = line.split(",")
+        # fields: rule_id,pattern_id,source_qid,question,answer_type,evidence_needed,where_to_find_it,if_missing_gap,decided_by,date,verified
+        decided_by = cells[-3] if len(cells) >= 3 else ""
+        date = cells[-2] if len(cells) >= 2 else ""
+        verified = cells[-1] if cells else ""
+        if not decided_by.strip() or decided_by.strip() == "OWNER_PENDING":
+            problems.append(f"OWNER/mapping-table.csv row {i}: decided_by missing or OWNER_PENDING")
+        if not date.strip():
+            problems.append(f"OWNER/mapping-table.csv row {i}: date missing")
+        if verified.strip() != "yes":
+            problems.append(f"OWNER/mapping-table.csv row {i}: verified must be yes on signed rows")
 
 
 def check_pyproject_pins(problems: list[str]) -> None:
@@ -231,7 +246,7 @@ def main() -> int:
     check_forbidden_tokens(problems)
     if args.phase is None or args.phase >= 1:
         check_owner_markers(problems)
-        check_mapping_table_header_only(problems)
+        check_mapping_table_signed(problems)
         check_pyproject_pins(problems)
         check_ci_workflow(problems)
 

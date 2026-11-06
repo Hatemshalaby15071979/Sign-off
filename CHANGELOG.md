@@ -5,6 +5,10 @@ contributor-editable (see CONTRIBUTING.md).
 
 ## Unreleased
 
+- **First real client pack (WE pilot, 2026-11-06).** A practitioner at a WE call centre answered a 10-question blank form and supplied anonymized exports (QA review, audit events, provider inventory, roles, agent identity, escalations, training, incidents). The owner signed 10 mapping rules (`OWNER/mapping-table.csv`, `Hatem Shalaby`, 2026-11-06) and the resulting pack built offline: **10/10 Yes with evidence, 0 gaps, `VERIFIED`** (pack `PK-278084a109d79591`, as-of 2026-11-07). Client data is held **outside** the repository and is not committed. The Oversight Statement records that the owner was authorised by the named accountable person ([REDACTED_PERSON], AI OPS Engineer) to sign on his behalf — recorded 2026-11-06.
+- Scaffold/test guards retired: the pre-owner "header-only mapping table" assertion now enforces *signed* rows (named owner, date, verified=yes).
+- Learned from the pilot (operator notes): exports may arrive as Excel (`.xlsx` content under `.csv` names) — convert to pure CSV first; `status` values must be `yes` (not `Completed`); escalations validate against an authorised-supervisor roster that must exist in the roles export; coverage window is 90 days, so stale exports (last year) read as No/N/A, not Yes.
+
 - Fixed: Dockerfile could not build (missing `pyproject.toml` context and demo
   fixtures) and its offline demo step failed on a root-created output volume.
   The image now runs from `PYTHONPATH`, copies the demo fixtures, the CI
