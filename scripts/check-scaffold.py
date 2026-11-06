@@ -175,7 +175,7 @@ def check_owner_markers(problems: list[str]) -> None:
 def check_mapping_table_signed(problems: list[str]) -> None:
     """Every data row must be signed: named owner, date, verified=yes.
 
-    The owner supplied the first signed mapping on 2026-11-06 (WE pilot);
+    The owner supplied the first signed mapping on 2026-11-06 (first pilot);
     the pre-owner header-only guard was retired in favour of enforcing
     signing quality on every row.
     """

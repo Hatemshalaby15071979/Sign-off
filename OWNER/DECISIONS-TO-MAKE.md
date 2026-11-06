@@ -4,10 +4,10 @@ These are the decisions an autonomous agent must never make. Each entry names
 the owner-only file, a conservative default already shipped in the code, and
 whom to consult. Work top to bottom; items 1–4 gate real client work.
 
-## 1. What counts as evidence — `OWNER/mapping-table.csv` ✅ DONE for the WE pilot (2026-11-06)
+## 1. What counts as evidence — `OWNER/mapping-table.csv` ✅ DONE for the first pilot (2026-11-06)
 - Decision: for each question in a real client questionnaire, which file +
   columns + condition constitute proof.
-- WE pilot status: 10 rows signed by Hatem Shalaby (2026-11-06), all
+- First pilot status: 10 rows signed by Hatem Shalaby (2026-11-06), all
   `verified=yes`; resulting pack 10/10 Yes, `VERIFIED`. New clients need
   their own signed rows — add them per `docs/MAPPING-TABLE-GUIDE.md`; the
   scaffold now enforces signing quality (no more header-only state).
@@ -34,7 +34,7 @@ whom to consult. Work top to bottom; items 1–4 gate real client work.
 - **Fixed price per assessment:** Egypt EGP 60,000–90,000 · Gulf
   (UAE/KSA/Qatar) $2,500–4,000 · Global (EU/UK) $3,000–6,000.
 - Terms: 50% upfront / 50% on pack delivery; annual re-run at 40% of the
-  assessment price; two-week engagement, offline, no integration. WE pilot
+  assessment price; two-week engagement, offline, no integration. First pilot
   delivered free as the reference case; no discounting below these bands.
 - Scope: one questionnaire + signed mapping + built/verified pack per
   assessment. Company/tax papers remain open (item 5) and are funded from
@@ -50,10 +50,10 @@ whom to consult. Work top to bottom; items 1–4 gate real client work.
 - NDA, liability cap, data-handling terms between you and the client. Draft
   nothing with an agent; have a lawyer review before first client contact.
 
-## 7. Licence — `LICENSE`
-- Conservative default shipped: proprietary, all rights reserved. Choosing
-  MIT/Apache/etc. is an owner decision. If you sell to enterprises, the
-  proprietary default is usually the safe start.
+## 7. Licence — `LICENSE` ✅ DECIDED (owner, 2026-11-06)
+- **MIT** (© 2026 Hatem Shalaby) adopted at commit `b782541`, replacing the
+  proprietary placeholder. Chosen to remove licence friction before first
+  sale; revisit only with counsel if enterprise terms later require it.
 
 ## 8. First 15 discovery calls, first invoice, first signed pack
 - See `docs/03-HANDOFF-TO-OWNER.md` steps 1–5. These cannot be automated and

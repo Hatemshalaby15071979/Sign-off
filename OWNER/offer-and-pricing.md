@@ -9,7 +9,7 @@
 | Global (EU/UK BPO serving banks/telcos) | $3,000–6,000 |
 
 Terms: 50% upfront, 50% on pack delivery. Annual re-run (refreshed pack, same
-mapping) at 40% of the assessment price. First pilot (WE) delivered free as
+mapping) at 40% of the assessment price. First pilot delivered free as
 the reference case; do not discount below these bands afterwards.
 
 To be written by the owner only.
@@ -26,7 +26,7 @@ deliverable = signed evidence pack). Three bands, per market:
 | Global (EU/UK BPO serving banks/telcos) | $3,000–6,000 | EU AI Act questionnaire pressure is highest here; price against the cost of one failed vendor review |
 
 Terms: 50% upfront, 50% on pack delivery. Annual re-run (refreshed pack,
-same mapping) at 40% of the assessment price. First pilot (WE) was free —
+same mapping) at 40% of the assessment price. First pilot was free —
 use it as the reference case, do not discount below the band afterwards.
 
 `LICENSE` was set to MIT on 2026-11-06 (owner instruction); this removes

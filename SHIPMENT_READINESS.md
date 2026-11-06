@@ -47,9 +47,8 @@ compliance approval, customer validation, or a production security approval.
    pointing to `docs/SECURITY.md`. It honestly states that no monitored
    reporting contact exists yet — no address was invented.
 
-`LICENSE` remains the owner-pending proprietary placeholder stating that the
-licence choice is an owner decision. Changing it would be a legal decision;
-it was not altered.
+`LICENSE` was a proprietary placeholder at audit time; the owner chose **MIT**
+on 2026-11-06 and the file now carries the MIT text (commit `b782541`).
 
 ## Checks run (exact outcomes)
 
@@ -102,10 +101,10 @@ into the operator's user site, not into the repository.
 - This is a pre-production document factory: no real client data, no signed
   rules, and no compliance certification exist in this repository.
 
-**Status: locally shipment-ready** for a first push (tests, offline,
-determinism, Docker, and dependency checks pass; fixes above committed
-locally), with the hosted-only verifications still open. Nothing was pushed,
-published, released, or deployed.
+**Status: locally shipment-ready** (tests, offline, determinism, Docker,
+and dependency checks pass; fixes above committed locally), with the
+hosted-only verifications still open. The owner authorised the GitHub push
+on 2026-11-06; no version tag or GitHub release exists yet.
 
 ### Owner decisions since the audit (2026-11-06)
 
@@ -114,7 +113,7 @@ published, released, or deployed.
   Gulf $2,500–4,000 · Global $3,000–6,000 per assessment; 50/50 terms,
   annual re-run at 40%. Recorded in `OWNER/DECISIONS-TO-MAKE.md` item 4.
 - **Second client: not required now** (owner decision) — production readiness
-  is proven by the WE pilot; a second client is a post-launch goal.
+  is proven by the first pilot; a second client is a post-launch goal.
 - **Legal/tax deferred to first-sale income** (owner is a solo builder with
   no company yet) — push to GitHub is held until the owner closes this.
 - **Hosted CI:** GitHub Actions is free and unlimited on public repos —
@@ -129,10 +128,10 @@ published, released, or deployed.
   animated demo video; uses only repo files + a self-generated synthetic
   pack, with a hard rule against any real client data on screen.
 
-## First real pilot pack — WE call centre (2026-11-06)
+## First real pilot pack — anonymized MENA call centre (2026-11-06)
 
 After the audit above, the owner completed the human-owner track with a real
-practitioner at a WE call centre:
+practitioner at a MENA call centre:
 
 - The practitioner answered a 10-question blank form (4 Yes, 3 Partly, 2 No in
   the gaps round, then the remaining exports arrived) and supplied anonymized
@@ -148,7 +147,7 @@ practitioner at a WE call centre:
   window), `Completed` training statuses read No, and a 3-provider
   no-training gap (Provider C) was flagged until the client remediated it.
 - **Authorization record:** the owner states he was authorised by the named
-  accountable person ([REDACTED_PERSON], AI OPS Engineer) to sign the Oversight
+  accountable person (AI OPS Engineer, name withheld) to sign the Oversight
   Statement on his behalf. Recorded 2026-11-06.
 - **Data boundary:** all client questionnaire data and exports are held
   **outside** this repository (operator's local `/tmp` only) and are not
@@ -160,10 +159,11 @@ practitioner at a WE call centre:
   organization's records. Licence choice, pricing, legal/tax review, and a
   second client remain open (`OWNER/DECISIONS-TO-MAKE.md` items 2–8).
 
-### Launch sequence — ready to run, deliberately NOT run yet
+### Launch sequence (owner-authorised 2026-11-06)
 
-Blocked by the owner's legal/tax gate (no push until company papers are
-sorted). When the owner says go, in order:
+Company/tax papers are deferred to first-sale income by owner decision
+(`OWNER/DECISIONS-TO-MAKE.md` item 5). Push authorised; steps run in order
+at launch:
 
 ```console
 $ # 1. replace owner@example.com in index.html with the real contact

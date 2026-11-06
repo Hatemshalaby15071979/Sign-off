@@ -28,11 +28,12 @@ be honest: every number and claim must be traceable to a file in this repo.
 
 1. **No client data, ever.** Screenshots and screen recordings come only
    from a *synthetic* pack you build yourself with `python -m signoff demo`.
-   Never open, display, or reference anything under `/tmp/opencode/we-*`, any
-   file in `~/Downloads`, or any real export. Anonymized *statistics* already
-   committed to this repo (e.g. "10/10 questions evidenced, 0 gaps") may be
-   shown as text — never the underlying rows, names of respondents' answers,
-   or the real dossier.
+   Never open, display, or reference anything outside this repository — no
+   operator scratch directories in `/tmp`, no `~/Downloads`, no real export
+   anywhere. Anonymized *statistics* already committed to this repo (e.g.
+   "10/10 questions evidenced, 0 gaps") may be shown as text — never the
+   underlying rows, answer-level detail, or the real dossier, and never any
+   client organization or contact name.
 2. **No fabricated claims.** Every on-screen number, price, and capability
    must appear in one of: `README.md`, `SHIPMENT_READINESS.md`,
    `CHANGELOG.md`, `docs/ARCHITECTURE.md`, `OWNER/offer-and-pricing.md`.
@@ -203,11 +204,11 @@ consistency of your records — not certification."*
 1. `ffprobe` shows duration 175–185 s, 1920×1080, 30 fps, has audio track.
 2. Every claim in the narration matches its source file (re-check S4 numbers
    against `SHIPMENT_READINESS.md`, S7 against `OWNER/offer-and-pricing.md`).
-3. **Leak check:** grep the render project for `we-pack`, `WE-blank`,
-   `[REDACTED_PERSON]` answers, `Downloads`, and any row values from real exports —
-   zero hits allowed in frames or project files. (The pilot *statistics* and
-   repo-committed pilot narrative are allowed; underlying client rows are
-   not.)
+3. **Leak check:** grep the render project for any client organization
+   name, contact name, operator scratch paths, and any row values from real
+   exports — zero hits allowed in frames or project files. (The pilot
+   *statistics* and repo-committed pilot narrative are allowed; underlying
+   client rows and identities are not.)
 4. Disclaimer present in S8 end frame.
 5. Re-run the render: identical output hash (or document why the toolchain is
    not bit-reproducible).
