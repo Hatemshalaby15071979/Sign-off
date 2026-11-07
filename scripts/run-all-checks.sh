@@ -12,7 +12,7 @@ python3 scripts/check-determinism.py --out out/determinism
 
 echo "== pytests =="
 if python3 -c "import pytest" 2>/dev/null; then
-    python3 -m pytest -q --override-ini=""
+    python3 -m pytest -q
 else
     echo "NOTE pytest not importable with python3; skipping test step here (covered by CI and dev venv)"
 fi
