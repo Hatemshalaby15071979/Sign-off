@@ -43,6 +43,9 @@ jobs:
       - name: Run demo with --network none
         run: |
           mkdir -p "$PWD/out/ci-demo"
+          # The runner creates this dir as root, but the container runs as the
+          # non-root `signoff` user; make the mount writable for that user.
+          chmod 777 "$PWD/out/ci-demo"
           docker run --rm --network none --read-only \
             -v "$PWD/out/ci-demo:/out" signoff:ci demo --out /out/demo
           test -s "$PWD/out/ci-demo/demo/dossier.html"
