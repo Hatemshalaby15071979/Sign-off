@@ -1,79 +1,134 @@
+<div align="center">
+
 # Signoff
 
-When a client asks *"how did AI touch our customers?"*, BPOs and back-office
-teams answer with adjectives. **Signoff answers with a signed, decision-by-
-decision evidence pack** — built offline, on the customer's own machine, from
-the CSV exports they already have.
+<!-- badges:start -->
 
-- **Input A:** the client's AI questionnaire (`.csv`, `.docx`, `.xlsx`, `.txt`/`.md`).
-- **Input B:** a folder of the customer's existing CSV exports (QA scoring
-  sheets, approval logs, escalation logs, WFM/role exports, audit events, AI
-  inventory, training and incident registers).
-- **Output:** a completed questionnaire with evidence IDs, a signable dossier
-  (HTML / PDF / JSON / CSV), a gap list of what is *not* provable, and a
-  one-page Oversight Statement with a **blank signature block for a human**.
+![licence](https://img.shields.io/badge/licence-MIT-blue)
+![local verification](https://img.shields.io/badge/local%20verification-140%20passed-brightgreen)
+![shipment status](https://img.shields.io/badge/shipment-locally%20ready-yellow)
 
-## The offline guarantee (read this first)
+*Local verification measured 2026-11-06 on `main`; hosted GitHub Actions has not run on this candidate. Client data is kept outside this repository.*
 
-Signoff runs **100% offline**. It makes no network calls, holds no
-credentials, touches no production systems, uses no LLM anywhere in the
-evidence path, and writes only to the output directory you give it. There is
-no server, no API, no telemetry — the security questionnaire has no subject.
-All evidence is reconstructed from the customer's own records, so it is
-reproducible in front of an auditor: every mapping decision points to a named
-human, a rule ID, and a date.
+<!-- badges:end -->
 
-## The owner boundary
+**An offline evidence-pack builder that answers *"how did AI touch our customers?"* with a signed, decision-by-decision dossier — not adjectives.**
 
-What counts as evidence for any question is decided **only by the human owner
-(Hatem)**, recorded in a signed mapping table (`OWNER/mapping-table.csv`).
-The machine never guesses, never paraphrases an answer, never auto-signs, and
-never classifies anyone's system as high-risk. Unmapped questions are
-reported as `UNMAPPED`, never answered. `OWNER/` cannot be auto-filled — see
-`OWNER/README.md`.
+![Status](https://img.shields.io/badge/status-v0.1.0-blue)
+![Licence](https://img.shields.io/badge/licence-MIT-blue)
+![Python](https://img.shields.io/badge/python-3.11%2B-3776ab)
 
-## 60-second demo
+</div>
 
-```console
-$ python -m signoff demo --out out/demo
-$ python -m signoff verify-pack --pack out/demo
-VERIFIED
-$ ls out/demo/
-# dossier.html  dossier.pdf  pack.json  questionnaire-answers.csv
-# gap-list.csv  oversight-statement.txt  ...
+## GitHub shipment status (2026-11-06)
+
+The intended public repository is [Hatemshalaby15071979/Sign-off](https://github.com/Hatemshalaby15071979/Sign-off). This checkout has been pushed to `main`; hosted GitHub Actions verification has not yet been observed on the pushed SHA. Local CI-equivalent checks pass: **140 tests**, **88% coverage**, offline scan OK, scaffold OK, determinism OK, Docker build + offline demo + verify all `VERIFIED`, and `pip-audit` clean after the `fpdf2==2.8.8` upgrade. See [`SHIPMENT_READINESS.md`](SHIPMENT_READINESS.md) for the exact check outcomes and remaining hosted-only verification.
+
+## One-line identity
+
+Signoff is an offline, signable AI questionnaire evidence-pack builder for contact-centre and back-office operations. It takes a client's AI questionnaire and a folder of the customer's own CSV exports, and produces a completed questionnaire with evidence IDs, a signable dossier (HTML / PDF / JSON / CSV), a gap list of what is *not* provable, and a one-page Oversight Statement with a blank signature block for a human.
+
+> [!IMPORTANT]
+> **Positioning.** Pre-production evidence factory. Signoff organises and surfaces gaps in evidence; it does not authenticate source CSVs, prove their completeness, or upgrade synthetic data into real evidence. A valid hash chain proves internal consistency of the pack only. No real client data, signed rules, or compliance certification exists in this repository.
+
+> [!NOTE]
+> **Operating principle.** Signoff runs **100% offline**. It makes no network calls, holds no credentials, touches no production systems, uses no LLM anywhere in the evidence path, and writes only to the output directory you give it. What counts as evidence for any question is decided **only by the human owner (Hatem)**, recorded in a signed mapping table (`OWNER/mapping-table.csv`). The machine never guesses, never paraphrases an answer, never auto-signs, and never classifies anyone's system as high-risk. Unmapped questions are reported as `UNMAPPED`, never answered. `OWNER/` cannot be auto-filled — see `OWNER/README.md`.
+
+## What it does
+
+1. **Input A** — the client's AI questionnaire (`.csv`, `.docx`, `.xlsx`, `.txt`/`.md`).
+2. **Input B** — a folder of the customer's existing CSV exports (QA scoring sheets, approval logs, escalation logs, WFM/role exports, audit events, AI inventory, training and incident registers).
+3. **Output** — a completed questionnaire with evidence IDs, a signable dossier (HTML / PDF / JSON / CSV), a gap list of what is *not* provable, and a one-page Oversight Statement with a blank signature block for a human.
+
+The owner boundary is structural: `OWNER/` holds the signed mapping table and is owner-decided territory; Signoff only enforces the rule shape (exactly one `named_accountable=yes` in `role_spec.csv`, `completed` values of `yes`, etc.).
+
+## How it fits Helix Codex
+
+Signoff is part of the Helix Codex / Helix Prime body of work — the same author and the same design philosophy (offline, explainable, auditable, no generative model in the evidence path). It is an **independent repository with no shared codebase or runtime infrastructure** with Helix Prime, live-support-assistant, CompliProof, or CreateLee; portfolio membership, not technical integration.
+
+Signoff's eight export shapes are the same shapes CreateLee rehearses (QA reviews, audit events, approvals, escalations, role spec, AI inventory, training records, incident notifications). CreateLee supplies *simulated-shaped* exports so the gate can be rehearsed end to end before real client exports arrive — Signoff then produces the pack verdicts that Helix-Codex's production gates consume as *content only* (the signature itself is an external, owner-supplied act).
+
+## Architecture
+
+- `src/signoff/` — the governed pack builder (parser, classifier, renderer, verifier).
+- `OWNER/` — owner decisions only: signed mapping table, offer-and-pricing, decisions-to-make. Not auto-fillable by the machine.
+- `docs/` — architecture, decision log, handoff-to-owner, limitations.
+- `index.html` — single-file, self-contained marketing landing page with decided pricing bands.
+- `out/` — gitignored output directory for demo and real packs.
+- `scripts/` — scaffold, offline, and determinism checks.
+- `tests/` — 140 tests covering the pack build, verification, and mapping guards.
+
+## Production status & verification
+
+> [!WARNING]
+> This is a pre-production document factory, not a compliance determination. **Locally shipment-ready; hosted-only verifications remain open.** Synthetic fixtures only for the demo pack; real client data is kept outside this repository. The first real pilot pack (10/10 Yes with evidence, 0 gaps, `VERIFIED`) was built 2026-11-06 from a MENA call centre's anonymised exports, but that client data is **not committed** and cannot be re-checked from this checkout.
+
+| Check | Result | Source |
+| --- | --- | --- |
+| Tests | **140 passed** (5.51s) | `PYTHONPATH=src python3 -m pytest -q` |
+| Coverage | **88%** (1485 stmts, 181 missed) | `pytest --cov=src/signoff --cov-report=term-missing -q` |
+| Scaffold check | **OK** — 116 required files present | `python3 scripts/check-scaffold.py` |
+| Offline scan | **OK** — zero network imports/calls/env reads | `python3 scripts/check-offline.py` |
+| Determinism | **OK** — byte-identical across runs | `scripts/check-determinism.py --out ...` |
+| Demo + verify | **VERIFIED** — 7 artifacts, hash chain replays cleanly | `python3 -m signoff demo ...` then `verify-pack` |
+| Docker build | **Built** — image runs read-only, non-root, `--network none` | `docker build -t signoff:shipment-audit .` |
+| Dependency audit | **No known vulnerabilities found** — `fpdf2==2.8.8` | `pip-audit -r` on pinned runtime set |
+| pip check | **No broken requirements** | `python3 -m pip check` |
+
+**Limitations (not waived):** hosted GitHub Actions, branch protection, repository visibility, and remote state were not verified until the push; third-party Actions are tag-pinned, not SHA-pinned; base images are tag-pinned, not digest-pinned; licence choice, security reporting contact, client use, and signed mapping rules remain owner decisions (`OWNER/DECISIONS-TO-MAKE.md`).
+
+## Run it
+
+```bash
+# Install
+python3 -m venv .venv && . .venv/bin/activate
+pip install ".[xlsx]"        # runtime: stdlib + pinned fpdf2 (+ openpyxl extra)
+pip install ".[dev]"         # dev only: pytest, pytest-cov
+
+# 60-second demo
+python -m signoff demo --out out/demo
+python -m signoff verify-pack --pack out/demo
+# -> VERIFIED
+
+# Full local gate
+python3 scripts/check-scaffold.py && python3 scripts/check-offline.py
+PYTHONPATH=src python3 -m pytest -q          # 140 passed
+PYTHONPATH=src python3 scripts/check-determinism.py --out out/determinism
+docker build -t signoff:latest .
 ```
 
-The demo uses synthetic fixtures and every artifact is visibly stamped
-`SIMULATION_DISCLOSURE` — *"Synthetic demonstration data. Not evidence. Not a
-client record. Not for submission."*
-
-## For visitors: marketing page & demo video
-
-- **[`index.html`](index.html)** — the plain-language landing page: the
-  problem, how Signoff solves it, why it's worth the money, the engineering
-  philosophy, and the decided pricing bands. Open it in any browser; it is a
-  single self-contained file with no external assets.
-- **[`docs/VIDEO-DEMO-PROMPT.md`](docs/VIDEO-DEMO-PROMPT.md)** — a complete,
-  self-contained prompt for an agent to autonomously produce the 2-minute
-  animated demo video (scene-by-scene narration, screenshot list, render
-  spec, and a verification gate). It builds its own synthetic pack for
-  screenshots — real client data is forbidden by construction.
-
-## Install
-
-```console
-$ python3 -m venv .venv && . .venv/bin/activate
-$ pip install ".[xlsx]"        # runtime: stdlib + pinned fpdf2 (+ openpyxl extra)
-$ pip install ".[dev]"         # dev only: pytest, pytest-cov
-```
-
-`.xlsx` parsing needs the optional `[xlsx]` extra; `.csv`, `.docx`, `.txt`,
-`.md` work from the standard library alone (`.docx` uses `zipfile` + XML).
+`.xlsx` parsing needs the optional `[xlsx]` extra; `.csv`, `.docx`, `.txt`, `.md` work from the standard library alone (`.docx` uses `zipfile` + XML).
 
 ## Documentation
 
-Full implementation report: [`REPORT.md`](REPORT.md). Architecture:
-`docs/ARCHITECTURE.md`. Owner handoff: `docs/03-HANDOFF-TO-OWNER.md`.
-Decision log: `docs/01-DECISION-LOG.md`.
+- Full implementation report: [`REPORT.md`](REPORT.md)
+- Architecture: `docs/ARCHITECTURE.md`
+- Owner handoff: `docs/03-HANDOFF-TO-OWNER.md`
+- Decision log: `docs/01-DECISION-LOG.md`
+- Shipment readiness record: [`SHIPMENT_READINESS.md`](SHIPMENT_READINESS.md)
 
-**Status: v0.1.0 — locally shipment-ready, production readiness proven on a real pilot.** MIT licence adopted and pricing decided (Egypt / Gulf / Global bands in `OWNER/offer-and-pricing.md`, owner-confirmed 2026-11-06); first real pack built 2026-11-06 (10/10 questions Yes with evidence, 0 gaps, `VERIFIED`; client data kept outside this repository; Oversight Statement signed by the owner by authorisation of the named accountable person). Remaining owner items: company/tax papers (`OWNER/DECISIONS-TO-MAKE.md` item 5, funded from first-sale income). Push to GitHub is owner-authorised (2026-11-06); no version tag or release exists yet.
+## Runbook (owner-authorised launch sequence)
+
+Contact email is set in `index.html` (`[REDACTED_EMAIL]`). Final sweep (all green as of 2026-11-06), then:
+
+```console
+$ git push -u origin audit/shipment-candidate   # or main; let hosted CI verify
+$ git tag -a v0.1.0 -m "v0.1.0 — first real pilot pack (10/10 evidenced, VERIFIED)"
+$ git push origin v0.1.0
+$ gh release create v0.1.0 --title "Signoff v0.1.0" --notes-file SHIPMENT_READINESS.md
+```
+
+No tag or release exists yet. Attach the 2-minute demo video (optional) produced by following `docs/VIDEO-DEMO-PROMPT.md`.
+
+## Related work
+
+- [CreateLee — Signoff rehearsal library](https://github.com/Hatemshalaby15071979/createlee)
+- [Portfolio and wider work](https://github.com/Hatemshalaby15071979)
+
+## Author
+
+Built by Hatem Shalaby, Contact Centre Operations & AI Implementation Lead | WFM & CX Transformation. Background: https://github.com/Hatemshalaby15071979
+
+## Licence
+
+MIT
