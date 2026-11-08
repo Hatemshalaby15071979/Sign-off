@@ -8,7 +8,7 @@
 ![local verification](https://img.shields.io/badge/local%20verification-140%20passed-brightgreen)
 ![shipment status](https://img.shields.io/badge/shipment-locally%20ready-yellow)
 
-*Local verification measured 2026-11-06 on `main`; hosted GitHub Actions has not run on this candidate. Client data is kept outside this repository.*
+*Local verification measured 2026-11-06 on `main`; hosted GitHub Actions has not run on this candidate. Data provenance is unverified; this repository is not claimed to be free of customer data.*
 
 <!-- badges:end -->
 
@@ -29,7 +29,7 @@ The intended public repository is [Hatemshalaby15071979/Sign-off](https://github
 Signoff is an offline, signable AI questionnaire evidence-pack builder for contact-centre and back-office operations. It takes a client's AI questionnaire and a folder of the customer's own CSV exports, and produces a completed questionnaire with evidence IDs, a signable dossier (HTML / PDF / JSON / CSV), a gap list of what is *not* provable, and a one-page Oversight Statement with a blank signature block for a human.
 
 > [!IMPORTANT]
-> **Positioning.** Pre-production evidence factory. Signoff organises and surfaces gaps in evidence; it does not authenticate source CSVs, prove their completeness, or upgrade synthetic data into real evidence. A valid hash chain proves internal consistency of the pack only. No real client data, signed rules, or compliance certification exists in this repository.
+> **Positioning.** Pre-production evidence factory. Signoff organises and surfaces gaps in evidence; it does not authenticate source CSVs, prove their completeness, or upgrade synthetic data into real evidence. A valid hash chain proves internal consistency of the pack only. The source and anonymization of repository examples have not been independently verified. Treat their provenance as unverified; this repository does not establish compliance certification.
 
 > [!NOTE]
 > **Operating principle.** Signoff runs **100% offline**. It makes no network calls, holds no credentials, touches no production systems, uses no LLM anywhere in the evidence path, and writes only to the output directory you give it. What counts as evidence for any question is decided **only by the human owner (Hatem)**, recorded in a signed mapping table (`OWNER/mapping-table.csv`). The machine never guesses, never paraphrases an answer, never auto-signs, and never classifies anyone's system as high-risk. Unmapped questions are reported as `UNMAPPED`, never answered. `OWNER/` cannot be auto-filled — see `OWNER/README.md`.
@@ -61,7 +61,7 @@ Signoff's eight export shapes are the same shapes CreateLee rehearses (QA review
 ## Production status & verification
 
 > [!WARNING]
-> This is a pre-production document factory, not a compliance determination. **Locally shipment-ready; hosted-only verifications remain open.** Synthetic fixtures only for the demo pack; real client data is kept outside this repository. The first real pilot pack (10/10 Yes with evidence, 0 gaps, `VERIFIED`) was built 2026-11-06 from a MENA call centre's anonymised exports, but that client data is **not committed** and cannot be re-checked from this checkout.
+> This is a pre-production document factory, not a compliance determination. **Locally shipment-ready; hosted-only verifications remain open.** The provenance of the demo pack and any referenced pilot materials has not been independently verified from this checkout. Do not treat those references as proof that committed data is synthetic or anonymized, or that no personal data is present.
 
 | Check | Result | Source |
 | --- | --- | --- |
