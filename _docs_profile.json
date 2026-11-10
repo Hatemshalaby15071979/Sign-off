@@ -1,0 +1,13 @@
+{
+  "name": "Signoff",
+  "repo": "Hatemshalaby15071979/Sign-off",
+  "status_template": "**Signoff @DOCS_SYNC_VERSION@ — pre-production evidence factory, verified locally only.** @DOCS_SYNC_TESTS@ automated tests pass@COVERAGE_FRAGMENT@. @DOCS_SYNC_CI@, and data provenance is unverified.",
+  "status_template_html": "<p class=\"status\"><strong>Signoff @DOCS_SYNC_VERSION@ — pre-production evidence factory, verified locally only.</strong> @DOCS_SYNC_TESTS@ automated tests pass@COVERAGE_FRAGMENT@. @DOCS_SYNC_CI@, and data provenance is unverified.</p>",
+  "facts": {
+    "version": "0.1.0",
+    "release_date": "6 November 2026",
+    "tests_passed": 140,
+    "coverage": 88,
+    "ci_label": "Hosted GitHub Actions has not yet run on this candidate"
+  }
+}

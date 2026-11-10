@@ -22,6 +22,10 @@
 
 ## GitHub shipment status (2026-11-06)
 
+<!-- docs-sync:start -->
+**Signoff 0.1.0 — pre-production evidence factory, verified locally only.** 140 automated tests pass, the code is 88.0% covered. Hosted GitHub Actions has not yet run on this candidate, and data provenance is unverified.
+<!-- docs-sync:end -->
+
 The intended public repository is [Hatemshalaby15071979/Sign-off](https://github.com/Hatemshalaby15071979/Sign-off). This checkout has been pushed to `main`; hosted GitHub Actions verification has not yet been observed on the pushed SHA. Local CI-equivalent checks pass: **140 tests**, **88% coverage**, offline scan OK, scaffold OK, determinism OK, Docker build + offline demo + verify all `VERIFIED`, and `pip-audit` clean after the `fpdf2==2.8.8` upgrade. See [`SHIPMENT_READINESS.md`](SHIPMENT_READINESS.md) for the exact check outcomes and remaining hosted-only verification.
 
 ## One-line identity
