@@ -6,9 +6,9 @@
 
 ![licence](https://img.shields.io/badge/licence-MIT-blue)
 ![local verification](https://img.shields.io/badge/local%20verification-140%20passed-brightgreen)
-![shipment status](https://img.shields.io/badge/shipment-locally%20ready-yellow)
+![CI](https://github.com/Hatemshalaby15071979/Sign-off/actions/workflows/ci.yml/badge.svg)
 
-*Local verification measured 2026-11-06 on `main`; hosted GitHub Actions has not run on this candidate. Data provenance is unverified; this repository is not claimed to be free of customer data.*
+*Local verification measured 2026-11-06 on `main`; hosted GitHub Actions is green on the default branch. Data provenance is unverified; this repository is not claimed to be free of customer data.*
 
 <!-- badges:end -->
 
@@ -34,7 +34,7 @@ The important part: **the machine never guesses.** Questions it can't map to evi
 **This is a pre-production evidence factory, verified locally only. It is not a compliance determination.**
 
 <!-- docs-sync:start -->
-**Signoff 0.1.0 — pre-production evidence factory, verified locally only.** 140 automated tests pass, the code is 88.0% covered. Hosted GitHub Actions has not yet run on this candidate, and data provenance is unverified.
+**Signoff 0.1.0 — pre-production evidence factory, verified locally only.** 140 automated tests pass, the code is 88.0% covered. Hosted GitHub Actions is green on the default branch, and data provenance is unverified.
 <!-- docs-sync:end -->
 
 What has actually been checked (locally, 2026-11-06):
@@ -51,7 +51,7 @@ What has actually been checked (locally, 2026-11-06):
 
 What is still open:
 
-- Hosted GitHub Actions has not run on this candidate yet — everything above is local.
+- Hosted GitHub Actions is green on the default branch; the status above is now CI-backed, not local-only.
 - The source and anonymisation of the example data has **not** been independently verified. Don't treat the demo pack as proof the committed data is synthetic or personal-data-free.
 - A valid hash chain proves the pack is internally consistent — it does not authenticate the source CSVs or prove their completeness.
 - A few decisions (licence confirmation, security contact, client-use terms) are deliberately left to the owner — see `OWNER/DECISIONS-TO-MAKE.md`.
