@@ -12,6 +12,8 @@
 
 <!-- badges:end -->
 
+**Offline by construction** — the pack is built with no network access (`--network none` in CI).
+
 </div>
 
 ## What is this?
