@@ -80,3 +80,28 @@ def test_rendered_pdf_bytes_stable():
     assert pdf.startswith(b"%PDF")
     again = build_rendered_artifacts()["dossier.pdf"]
     assert sha256_bytes(pdf) == sha256_bytes(again)
+
+
+def test_unverified_rules_pack_renders_with_the_banner():
+    """Regression: the PDF renderer used the banner without importing it.
+
+    An unverified-rules pack is exactly what a real client build produces
+    before the owner signs the mapping, so this path must render rather than
+    raise NameError. It must also SAY it is unverified on every artifact.
+    """
+    import dataclasses
+
+    pack = dataclasses.replace(
+        builder_mod.build_pack(
+            questionnaire_path=FIXTURES / "questionnaire.demo.csv",
+            data_dir=FIXTURES,
+            data_files=[FIXTURES / n for n in DEMO_DATA_FILES],
+            mapping_path=FIXTURES / "mapping-table.demo.csv",
+            as_of=AS_OF,
+            simulated=False,
+        ),
+        unverified_rules=True,
+    )
+    arts = cli._render_artifacts(pack, pack.as_of)
+    assert arts["dossier.pdf"].startswith(b"%PDF")
+    assert "UNVERIFIED RULES" in arts["dossier.html"].decode("utf-8")

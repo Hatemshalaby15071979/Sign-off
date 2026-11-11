@@ -12,6 +12,7 @@ from fpdf import FPDF
 from signoff.render.appendix import APPENDIX_BANNER, appendix_rows
 from signoff.render.disclosure import (
     NOT_PROOF_POINTS, NOT_PROOF_TITLE, SIMULATION_DISCLOSURE,
+    UNVERIFIED_RULES_BANNER,
 )
 from signoff.util.clock import parse_instant
 
