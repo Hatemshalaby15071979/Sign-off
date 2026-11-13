@@ -1,4 +1,4 @@
-<<<OWNER — DO NOT AUTO-FILL — HUMAN DECISION REQUIRED>>>
+<<<OWNER — PRICING DECIDED (owner confirmed 2026-11-06). Reference values below; do not edit without owner sign-off.>>>
 
 # PRICING DECIDED (owner confirmed, 2026-11-06)
 
@@ -12,7 +12,7 @@ Terms: 50% upfront, 50% on pack delivery. Annual re-run (refreshed pack, same
 mapping) at 40% of the assessment price. First pilot delivered free as
 the reference case; do not discount below these bands afterwards.
 
-To be written by the owner only.
+Owner-confirmed reference values — do not edit without owner sign-off.
 
 ## PRICING DECIDED — owner confirmed 2026-11-06
 
