@@ -13,3 +13,9 @@ segments/
 concat.txt
 package.json
 package-lock.json
+
+# Sensitive owner-supplied material — never commit real data or questionnaires
+OWNER/questionnaires/
+OWNER/real-data/
+out/
+.coverage
