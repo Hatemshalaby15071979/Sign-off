@@ -11,6 +11,7 @@ import io
 from dataclasses import dataclass
 
 from signoff.errors import MappingError
+from signoff.util.csv_safe import csv_safe
 
 HEADER = (
     "rule_id,pattern_id,source_qid,question,answer_type,evidence_needed,"
@@ -59,5 +60,6 @@ def rules_to_csv(rules: list[MappingRule]) -> str:
     writer = csv.DictWriter(buf, fieldnames=COLUMNS, lineterminator="\n")
     writer.writeheader()
     for rule in rules:
-        writer.writerow(rule.to_dict())
+        writer.writerow({key: csv_safe(value)
+                         for key, value in rule.to_dict().items()})
     return buf.getvalue()

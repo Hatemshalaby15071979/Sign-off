@@ -6,6 +6,7 @@ import io
 from typing import TYPE_CHECKING
 
 from signoff.render.disclosure import active_banners, not_proof_csv_rows
+from signoff.util.csv_safe import csv_safe_row
 
 if TYPE_CHECKING:  # pragma: no cover
     from signoff.model.evidence_pack import EvidencePack
@@ -15,12 +16,12 @@ def _rows_to_csv(header: list[str], rows: list[list[str]],
                  simulated: bool, unverified: bool) -> str:
     buf = io.StringIO()
     writer = csv.writer(buf, lineterminator="\n")
-    writer.writerow(header)
-    writer.writerows(rows)
+    writer.writerow(csv_safe_row(header))
+    writer.writerows(csv_safe_row(row) for row in rows)
     for label, value in not_proof_csv_rows():
-        writer.writerow([label, value])
+        writer.writerow(csv_safe_row([label, value]))
     for banner in active_banners(simulated, unverified):
-        writer.writerow(["banners", banner])
+        writer.writerow(csv_safe_row(["banners", banner]))
     buf.seek(0)
     return buf.getvalue()
 
