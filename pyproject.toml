@@ -36,6 +36,9 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+# Make the suite runnable from a fresh checkout without `pip install -e .`
+# or a manually exported PYTHONPATH (see CR-05).
+pythonpath = ["src"]
 
 [tool.coverage.run]
 source = ["src/signoff"]
