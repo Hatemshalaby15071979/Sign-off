@@ -27,7 +27,7 @@ You give it two things:
 
 It produces a completed questionnaire where every answer points to a specific evidence ID, a signable dossier (HTML, PDF, JSON, or CSV), an honest list of what **cannot** be proven, and a one-page Oversight Statement with a blank signature block for a human.
 
-The important part: **the machine never guesses.** Questions it can't map to evidence are reported as `UNMAPPED`, never answered. What counts as evidence is decided only by the human owner, in a signed mapping table. And the whole thing runs 100% offline — no network calls, no credentials, no AI model anywhere in the evidence path.
+The important part: **the machine never guesses.** Questions it can't map to evidence are reported as `UNMAPPED`, never answered. What counts as evidence is decided only by the human owner, in a human-authorised mapping table (named owner + date + `verified=yes`; there is no cryptographic signature). And the whole thing runs 100% offline — no network calls, no credentials, no AI model anywhere in the evidence path.
 
 ## Current status — read this first
 
@@ -53,7 +53,7 @@ What is still open:
 
 - Hosted GitHub Actions is green on the default branch; the status above is now CI-backed, not local-only.
 - The source and anonymisation of the example data has **not** been independently verified. Don't treat the demo pack as proof the committed data is synthetic or personal-data-free.
-- A valid hash chain proves the pack is internally consistent — it does not authenticate the source CSVs or prove their completeness.
+- A valid hash chain proves the pack is internally consistent — it does not authenticate the source CSVs or prove their completeness. **Packs are hash-consistent, not signed:** `VERIFIED` means the artifact digests and hash chain replay; no signing key exists and no digital signature is produced.
 - A few decisions (licence confirmation, security contact, client-use terms) are deliberately left to the owner — see `OWNER/DECISIONS-TO-MAKE.md`.
 
 Details, if you want them: [SHIPMENT_READINESS.md](SHIPMENT_READINESS.md) · [REPORT.md](REPORT.md) · docs/ (architecture, decision log, owner handoff)

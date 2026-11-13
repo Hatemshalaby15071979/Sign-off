@@ -24,7 +24,7 @@ The Python package separates ingestion, mapping validation, coverage/classificat
 
 ## 5. Safety and ownership boundary
 
-The production mapping table remains header-only. Owner files retain their required human-decision marker. Demo fixtures are synthetic and disclose that status. No output is a compliance certification, and a human must review any client-facing pack.
+The mapping table contains the first pilot's 10 human-authorised rows (named owner, date, `verified=yes`; no cryptographic signature). New clients need their own rows. Owner files retain their required human-decision marker. Demo fixtures are synthetic and disclose that status. No output is a compliance certification, and a human must review any client-facing pack.
 
 ## 6. Determinism and integrity
 

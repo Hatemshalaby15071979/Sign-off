@@ -65,5 +65,5 @@ def load_mapping(
     if allow_unverified:
         echo(f"WARNING: running with --allow-unverified. {UNVERIFIED_RULES_BANNER}")
     echo(f"mapping table: {dedup_report(rules)}" if rules else
-         "mapping table: 0 signed rules")
+         "mapping table: 0 authorised rules")
     return rules, unverified

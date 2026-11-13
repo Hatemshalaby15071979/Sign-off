@@ -33,7 +33,7 @@ def cmd_validate_mapping(args) -> int:  # pragma: no cover - thin shell over loa
     from signoff.mapping.loader import load_mapping
     rules, unverified = load_mapping(Path(args.mapping),
                                      allow_unverified=args.allow_unverified)
-    print(f"VALID: {len(rules)} signed rule(s){' (UNVERIFIED)' if unverified else ''}")
+    print(f"VALID: {len(rules)} authorised rule(s){' (UNVERIFIED)' if unverified else ''}")
     return 0
 
 
@@ -229,7 +229,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_parse_questionnaire)
 
-    p = sub.add_parser("build", help="build a signed evidence pack (real data)")
+    p = sub.add_parser("build", help="build a hash-consistent evidence pack (real data)")
     p.add_argument("--questionnaire", required=True)
     p.add_argument("--data", required=True, help="folder of CSV exports (Input B)")
     p.add_argument("--mapping", required=True)

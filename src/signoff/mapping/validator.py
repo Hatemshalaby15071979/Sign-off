@@ -1,7 +1,7 @@
 """Mapping-table validator — fail-closed on anything a human signer must fix.
 
 Rejections (all errors name the offending rule_id):
-- duplicate rule_id; duplicate source_qid (1 question = 1 signed rule)
+- duplicate rule_id; duplicate source_qid (1 question = 1 authorised rule)
 - blank required fields (incl. question, evidence_needed, where_to_find_it,
   if_missing_gap, decided_by, date)
 - answer_type outside yes_no|free_text|attachment
@@ -80,7 +80,7 @@ def validate_rules(rows: list[dict], *, allow_unverified: bool = False) -> list[
         elif source_qid in seen_qids:
             problems.append(
                 f"{rule_id or prefix}: duplicate source_qid {source_qid!r} "
-                "(one question is answered by exactly one signed rule)")
+                "(one question is answered by exactly one authorised rule)")
         seen_qids.add(source_qid)
         if not question:
             problems.append(f"{rule_id or prefix}: blank question — copy the exact "

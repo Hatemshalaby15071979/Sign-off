@@ -1,6 +1,6 @@
-"""MappingRule — one signed row of the operator's mapping table.
+"""MappingRule — one human-authorised row of the operator's mapping table.
 
-The mapping table is the authoritative, human-signed record of what counts
+The mapping table is the authoritative, human-authorised record of what counts
 as evidence for a questionnaire question. Signoff only matches a question's
 source_qid to a row here; it never guesses.
 """

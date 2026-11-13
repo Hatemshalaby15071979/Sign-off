@@ -16,6 +16,6 @@ def dedup_report(rules: list[MappingRule]) -> str:
     """Human-readable dedup summary printed by loader/build, e.g. the count."""
     groups = group_by_pattern(rules)
     questions = sum(len(g) for g in groups.values())
-    return (f"{len(rules)} signed rule(s), {len(groups)} pattern(s); "
+    return (f"{len(rules)} authorised rule(s), {len(groups)} pattern(s); "
             f"{questions} question(s) answered by {len(rules)} distinct rules "
             f"({questions - len(rules)} duplicate(s) collapsed by pattern_id)")

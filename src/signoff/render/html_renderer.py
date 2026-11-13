@@ -171,7 +171,7 @@ def render_html(pack: "EvidencePack") -> str:
 <style>{CSS}</style></head>
 <body><main>
 <h1>Signoff — AI questionnaire evidence dossier</h1>
-<p>A signed, decision-by-decision evidence pack reconstructed from records
+<p>A hash-consistent, decision-by-decision evidence pack reconstructed from records
 the customer supplied. Built fully offline; no model took any decision here.</p>
 {banners_html}
 <h2>Pack summary</h2>
