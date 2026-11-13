@@ -1,0 +1,4 @@
+# CODEOWNERS — owner-supplied material requires owner review.
+# ME-08: OWNER/ content (pricing, decisions, real client data) must never be
+# auto-edited by agents or bots; only the repository owner may approve changes.
+/OWNER/ @Hatemshalaby15071979
