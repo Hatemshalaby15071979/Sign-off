@@ -5,7 +5,7 @@
 <!-- badges:start -->
 
 ![licence](https://img.shields.io/badge/licence-MIT-blue)
-![local verification](https://img.shields.io/badge/local%20verification-140%20passed-brightgreen)
+![local verification (2026-11-06)](https://img.shields.io/badge/local%20verification-2026--11--06-blue)
 ![CI](https://github.com/Hatemshalaby15071979/Sign-off/actions/workflows/ci.yml/badge.svg)
 
 *Local verification measured 2026-11-06 on `main`; hosted GitHub Actions is green on the default branch. Data provenance is unverified; this repository is not claimed to be free of customer data.*
@@ -34,7 +34,7 @@ The important part: **the machine never guesses.** Questions it can't map to evi
 **This is a pre-production evidence factory, verified locally only. It is not a compliance determination.**
 
 <!-- docs-sync:start -->
-**Signoff 0.1.0 — pre-production evidence factory, verified locally only.** 140 automated tests pass, the code is 88.0% covered. Hosted GitHub Actions is green on the default branch, and data provenance is unverified.
+**Signoff 0.1.0 — pre-production evidence factory, verified locally only.** 140 automated tests passed in a local run (2026-11-06); code 88.0% covered. Hosted GitHub Actions is green on the default branch, and data provenance is unverified.
 <!-- docs-sync:end -->
 
 What has actually been checked (locally, 2026-11-06):

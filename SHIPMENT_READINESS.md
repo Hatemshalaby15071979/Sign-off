@@ -118,7 +118,7 @@ into the operator's user site, not into the repository.
   no client has an authorised mapping table in this repository, and no
   compliance certification exists.
 
-**Status: locally shipment-ready** (tests, offline, determinism, Docker,
+**Status: locally verified, not shipment-ready** (tests, offline, determinism, Docker,
 and dependency checks pass; fixes above committed locally), with
 hosted-only verifications to run at first push. The owner authorised the
 GitHub push on 2026-11-06; no version tag or GitHub release exists yet.
