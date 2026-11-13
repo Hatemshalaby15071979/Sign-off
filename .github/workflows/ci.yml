@@ -1,5 +1,11 @@
 name: CI
 
+# Branch policy: this repository's default branch is `main` (not `master`). CI
+# runs on push and pull_request to ALL branches. This is a verification gate
+# only — a green run is not a release or shipment decision. Note: git history is
+# NOT rewritten here; changing history requires the owner's explicit G2
+# authorization. Commit messages that say "[gate: ... pass]" are not evidence;
+# only this workflow's output is.
 on:
   push:
     branches: ['**']
@@ -51,3 +57,8 @@ jobs:
             -v "$PWD/out/ci-demo:/out" signoff:ci demo --out /out/demo
           test -s "$PWD/out/ci-demo/demo/dossier.html"
           test -s "$PWD/out/ci-demo/demo/dossier.pdf"
+
+      # ME-15: agent-directive files must carry the quarantine header so an
+      # automated agent does not treat their contents as commands.
+      - name: ME-15 agent-instruction guard
+        run: python scripts/verify_agent_instruction_files.py
