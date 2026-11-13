@@ -10,6 +10,22 @@ This is a local repository shipment assessment. No push, tag, GitHub release,
 or deployment was made. It does not assert production readiness, legal or
 compliance approval, customer validation, or a production security approval.
 
+## Status vocabulary (binding)
+
+These terms are used precisely throughout the repository:
+
+- **hash-consistent pack** — a pack whose artifact digests and hash chain
+  replay. `VERIFIED` means only this. It does not authenticate the source
+  records, prove completeness, or establish who produced them.
+- **human-authorised rule** — a row in `OWNER/mapping-table.csv` with a named
+  `decided_by`, a real `date`, and `verified=yes`, entered by a human. This is
+  an authorisation record, **not** a cryptographic signature.
+- **signed pack** — a pack carrying a digital signature made with a
+  human-supplied private key. **No such key exists in this repository and
+  Signoff does not produce one.** No document may describe a pack as signed
+  until a human supplies a key and a signing step is implemented and tested.
+
+
 ## Initial state (2026-11-06)
 
 - Checkout: `cloned_repos/signoff`, branch `audit/shipment-candidate`,
@@ -93,13 +109,14 @@ into the operator's user site, not into the repository.
 - Hosted GitHub Actions, branch protection, repository visibility, and remote
   state were **not verified** (no push was made or authorized). The workflow
   must be run on GitHub after the owner pushes.
-- Third-party Actions are tag-pinned, not SHA-pinned; base images are
-  tag-pinned (`python:3.11-slim`), not digest-pinned — digests could not be
-  verified from this environment.
-- Licence choice, security reporting contact, client use, and signed mapping
-  rules remain owner decisions (`OWNER/DECISIONS-TO-MAKE.md`).
-- This is a pre-production document factory: no real client data, no signed
-  rules, and no compliance certification exist in this repository.
+- Third-party Actions are tag-pinned, not SHA-pinned; base images are now
+  digest-pinned (`python:3.11-slim@sha256:07d48…`). Action SHA pinning remains
+  open.
+- Licence choice, security reporting contact, client use, and the authorisation
+  of mapping rules remain owner decisions (`OWNER/DECISIONS-TO-MAKE.md`).
+- This is a pre-production document factory: no real client data is committed,
+  no client has an authorised mapping table in this repository, and no
+  compliance certification exists.
 
 **Status: locally shipment-ready** (tests, offline, determinism, Docker,
 and dependency checks pass; fixes above committed locally), with
@@ -137,27 +154,31 @@ practitioner at a MENA call centre:
   the gaps round, then the remaining exports arrived) and supplied anonymized
   exports: QA review, audit events, provider inventory, roles/accountability,
   agent-identity log, escalations, training records, incident SLA log.
-- The owner signed 10 mapping rules in `OWNER/mapping-table.csv`
+- The owner entered 10 mapping rules in `OWNER/mapping-table.csv`
   (`decided_by=Hatem Shalaby`, `date=2026-11-06`, `verified=yes` for all).
-  The scaffold/test guards were updated accordingly: the pre-owner
-  "header-only" assertion now enforces signed rows. Full suite: **140 passed**.
-- Resulting pack (built offline, as-of 2026-11-07): **10/10 Yes with
-  evidence, 0 gap rows, `VERIFIED`** (`PK-278084a109d79591`). Intermediate
-  states were honest: stale 2025 audit rows read No (outside the 90-day
-  window), `Completed` training statuses read No, and a 3-provider
-  no-training gap (Provider C) was flagged until the client remediated it.
-- **Authorization record:** the owner states he was authorised by the named
-  accountable person (AI OPS Engineer, name withheld) to sign the Oversight
-  Statement on his behalf. Recorded 2026-11-06.
+  These are human authorisations, **not cryptographic signatures**. The
+  scaffold/test guards were updated accordingly: the pre-owner "header-only"
+  assertion now requires named, dated, verified rows. Full suite: **140 passed**.
+- Resulting pack (built offline, as-of 2026-11-07) reported **10/10 Yes with
+  evidence, 0 gap rows**, and the verifier returned `VERIFIED`
+  (`PK-278084a109d79591`). `VERIFIED` means the artifact digests and hash chain
+  replay; it does **not** authenticate the source exports. Intermediate states
+  were honest: stale 2025 audit rows read No (outside the 90-day window),
+  `Completed` training statuses read No, and a 3-provider no-training gap
+  (Provider C) was flagged until the client remediated it.
+- **Oversight Statement:** it remains unsigned. No signature, key, or
+  independent authorisation record is present in this repository.
 - **Data boundary:** all client questionnaire data and exports are held
   **outside** this repository (operator's local `/tmp` only) and are not
-  committed. `incident_register` was reconstructed verbatim from the
-  dossier's evidence source table because the original file never arrived
-  on disk; replace it with the original from the client before any external
-  use.
+  committed. `incident_register` was reconstructed from the dossier's evidence
+  source table because the original file never arrived on disk. It is not a
+  source record, so the 10/10 result above is **not valid source evidence** and
+  must not be shown to a client or used in a release claim. Rebuild only from
+  the client's original export.
 - Production scope is unchanged: this pack evidences one pilot
-  organization's records. Licence choice, pricing, legal/tax review, and a
-  second client remain open (`OWNER/DECISIONS-TO-MAKE.md` items 2–8).
+  organization's records, subject to the reconstructed-record caveat above.
+  Licence choice, pricing, legal/tax review, and a second client remain open
+  (`OWNER/DECISIONS-TO-MAKE.md` items 2–8).
 
 ### Launch sequence (owner-authorised 2026-11-06)
 
@@ -174,13 +195,14 @@ $ docker build -t signoff:latest .             # builds clean
 $ # 3. push the branch, let hosted CI verify (free on public repos):
 $ git push -u origin audit/shipment-candidate
 $ # 4. tag + release once CI is green:
-$ git tag -a v0.1.0 -m "v0.1.0 — first real pilot pack (10/10 evidenced, VERIFIED)"
+$ git tag -a v0.1.0 -m "v0.1.0 — hash-consistent pilot pack (not signed)"
 $ git push origin v0.1.0
 $ gh release create v0.1.0 --title "Signoff v0.1.0" --notes-file SHIPMENT_READINESS.md
 $ # 5. optional: attach the 2-min video (out/video/signoff-demo-2min.mp4)
 $ #    produced by following docs/VIDEO-DEMO-PROMPT.md
 ```
 
-Nothing above has been executed. A remote (`origin` → `github.com/Hatemshalaby15071979/Sign-off`) is
-configured, but **nothing has ever been pushed** — the remote contains no
-commits from this work. Verify with `git log origin/audit/shipment-candidate..HEAD` (or a fresh `git ls-remote`) before assuming state.
+Nothing above has been executed as part of this assessment. A remote (`origin` →
+`github.com/Hatemshalaby15071979/Sign-off`) is configured. The repository was
+later published (private) on 2026-11-13; check `git ls-remote` and the hosted
+CI run before assuming any tag, release, or green build exists.

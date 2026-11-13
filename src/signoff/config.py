@@ -19,7 +19,7 @@ ANSWER_YES = "Yes"
 ANSWER_PARTLY = "Partly"
 ANSWER_NO = "No"
 
-# Literal answer produced when no signed rule matches a question's source_qid.
+# Literal answer produced when no authorised rule matches a question's source_qid.
 UNMAPPED = "UNMAPPED"
 
 # Owner-table rejection sentinel.

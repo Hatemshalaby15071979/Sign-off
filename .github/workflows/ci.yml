@@ -22,7 +22,8 @@ jobs:
       - name: Install pinned dev dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install "fpdf2==2.8.8" "openpyxl==3.1.5" "pytest==9.1.1" "pytest-cov==7.1.0"
+          python -m pip install --require-hashes -r requirements.lock
+          python -m pip install "pytest==9.1.1" "pytest-cov==7.1.0"
           python -m pip install --no-deps -e .
 
       - name: Scaffold check
@@ -43,10 +44,10 @@ jobs:
       - name: Run demo with --network none
         run: |
           mkdir -p "$PWD/out/ci-demo"
-          # The runner creates this dir as root, but the container runs as the
-          # non-root `signoff` user; make the mount writable for that user.
-          chmod 777 "$PWD/out/ci-demo"
+          # Run as the runner uid so the bind-mounted output directory is
+          # writable without world-writable permissions (HI-10).
           docker run --rm --network none --read-only \
+            --user "$(id -u):$(id -g)" \
             -v "$PWD/out/ci-demo:/out" signoff:ci demo --out /out/demo
           test -s "$PWD/out/ci-demo/demo/dossier.html"
           test -s "$PWD/out/ci-demo/demo/dossier.pdf"

@@ -27,7 +27,7 @@ def test_validate_mapping_prints_rule_count():
     buf = io.StringIO()
     with contextlib.redirect_stdout(buf):
         assert cli.cmd_validate_mapping(A()) == 0
-    assert "VALID: 16 signed rule(s)" in buf.getvalue()
+    assert "VALID: 16 authorised rule(s)" in buf.getvalue()
 
 
 def test_parse_questionnaire_writes_csv(tmp_path):

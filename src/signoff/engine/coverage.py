@@ -8,7 +8,7 @@ Coverage window: the 90 days ending at the injected `--as-of` instant
 numerator and denominator.
 
 The per-pattern evidence requirements below are hand-written engineering
-constants (decision log D-012): they state what the signed rules in the
+constants (decision log D-012): they state what the authorised rules in the
 mapping table must be able to point at. The mapping table remains the
 authority for WHICH patterns a question needs; these specs define how a
 pattern's evidence is counted. Deterministic function of (events, as_of).

@@ -26,11 +26,11 @@ KIND_FOR_PATTERN: dict[str, str] = {
 }
 
 _COV_REMEDIATION = ("Collect the missing records named above for the coverage "
-                    "window and re-run `signoff build` with the same signed "
+                    "window and re-run `signoff build` with the same authorised "
                     "mapping table.")
 
 _UNMAPPED_REMEDIATION = (
-    "Add a signed rule to the mapping table for this qid "
+    "Add an authorised rule to the mapping table for this qid "
     "(docs/MAPPING-TABLE-GUIDE.md), or answer the client manually outside "
     "Signoff. Do not paraphrase an answer into the pack.")
 
@@ -46,7 +46,7 @@ def build_gaps(
     unmapped: list[tuple[str, str]],
     questionnaire_rel: str,
 ) -> list[Gap]:
-    """Coverage below 100% plus questions no signed rule covers (UNMAPPED)."""
+    """Coverage below 100% plus questions no authorised rule covers (UNMAPPED)."""
     files_by_kind: dict[str, set[str]] = {}
     for ev in events:
         if not ev.event_id:
@@ -75,7 +75,7 @@ def build_gaps(
         gaps.append(Gap(
             rule_id="-",
             source_qid=qid,
-            reason=(f"UNMAPPED: no signed rule maps question '{qid}' "
+            reason=(f"UNMAPPED: no authorised rule maps question '{qid}' "
                     f"('{short}'); no answer may be generated"),
             affected_source_files=[questionnaire_rel],
             affected_row_count=0,

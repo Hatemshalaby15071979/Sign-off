@@ -1,6 +1,7 @@
 """Shared test fixtures: fixture paths, pack builders, small canonical CSVs."""
 from __future__ import annotations
 
+import os
 import shutil
 import subprocess
 import sys
@@ -10,6 +11,13 @@ import pytest
 
 REPO = Path(__file__).resolve().parent.parent
 FIXTURES = REPO / "tests" / "fixtures"
+
+# Subprocess-based tests (`python -m signoff`) must import the package from a
+# fresh checkout too. pyproject's `pythonpath = ["src"]` only covers the
+# in-process interpreter, so export it for children as well (CR-05).
+_SRC = str(REPO / "src")
+_existing = os.environ.get("PYTHONPATH")
+os.environ["PYTHONPATH"] = _SRC + (os.pathsep + _existing if _existing else "")
 
 AS_OF = "2026-11-05T00:00:00+00:00"
 DEMO_AS_OF = "2026-11-05T00:00:00+00:00"

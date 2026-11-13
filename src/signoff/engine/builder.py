@@ -139,11 +139,11 @@ def build_answers(
                 core = cfg.ANSWER_NO
             else:
                 core = cfg.ANSWER_PARTLY
-            text = (f"{core} — signed evidence: rule {rule.rule_id} "
+            text = (f"{core} — authorised evidence: rule {rule.rule_id} "
                     f"(decided by {rule.decided_by}, {rule.date}); "
                     f"coverage {cov_text} ({denominator}); evidence {ev_id}")
         elif q.answer_type == "free_text":
-            text = (f"Evidence required by signed rule {rule.rule_id} "
+            text = (f"Evidence required by authorised rule {rule.rule_id} "
                     f"({rule.decided_by}, {rule.date}): {rule.evidence_needed}. "
                     f"Coverage: {cov_text} ({denominator}); evidence {ev_id}.")
         else:  # attachment

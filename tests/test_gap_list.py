@@ -62,7 +62,7 @@ def test_unmapped_questions_gap_no_answer_may_be_generated():
     assert by_qid["Q-117"].trust_label == "UNMAPPED"
     unmapped_gaps = [g for g in gaps if g.rule_id == "-"]
     assert {g.source_qid for g in unmapped_gaps} == {"Q-117", "Q-118"}
-    assert all("no signed rule" in g.reason for g in unmapped_gaps)
+    assert all("no authorised rule" in g.reason for g in unmapped_gaps)
     assert all(g.affected_source_files == ["questionnaire.demo.csv"]
                for g in unmapped_gaps)
 
@@ -76,11 +76,11 @@ def test_previous_pattern_kinds_map_to_real_files():
 
 
 def test_signoff_never_guessed_any_answer_text():
-    # Every mapped answer must quote its signed rule, never invent prose.
+    # Every mapped answer must quote its authorised rule, never invent prose.
     _, answers = demo_gaps_and_unmapped()
     for a in answers:
         if a.trust_label != "UNMAPPED":
             assert a.mapped_rule_id and a.pattern_id and a.evidence_id
-            # the rule id itself (a signed table reference) is quoted in the text
+            # the rule id itself (an authorised table reference) is quoted in the text
             assert a.mapped_rule_id in a.answer
             assert a.evidence_id in a.answer

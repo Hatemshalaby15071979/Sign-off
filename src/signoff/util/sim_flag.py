@@ -14,7 +14,7 @@ SIMULATION_DISCLOSURE = (
 
 UNVERIFIED_RULES_BANNER = (
     "UNVERIFIED RULES: this pack was built with unverified mapping rules "
-    "(no signed decision_by/date/verified=yes). It has no evidential value "
+    "(no human-authorised decision_by/date/verified=yes). It has no evidential value "
     "until the operator signs the mapping table and rebuilds."
 )
 
@@ -25,7 +25,7 @@ NOT_PROOF_POINTS = [
     "It does not prove that a system is or is not high-risk; it never "
     "classifies anyone's system, and no classification is taken from this pack.",
     "It does not prove the absence of incidents; it proves only that the "
-    "supplied CSVs do or do not contain the records the signed rules ask for.",
+    "supplied CSVs do or do not contain the records the authorised rules ask for.",
     "It does not replace a signed policy, contract, SOP or human decision — "
     "the Oversight Statement must still be signed by a named human.",
     "It does not cover periods for which no exports were supplied; coverage "

@@ -5,7 +5,7 @@
   "objective": "Offline CLI and Docker evidence-pack builder for AI vendor questionnaires",
   "runtime": {
     "python": ">=3.11",
-    "dependencies": ["fpdf2==2.8.4"],
+    "dependencies": ["fpdf2==2.8.8"],
     "optional_xlsx": "openpyxl==3.1.5",
     "network_calls": false,
     "llm_in_evidence_path": false
@@ -20,7 +20,7 @@
     "oversight-statement.txt"
   ],
   "owner_boundary": {
-    "mapping_table": "header-only",
+    "mapping_table": "10 human-authorised rows for the first pilot (named owner, date, verified=yes); no cryptographic signature",
     "human_signature": "blank by design"
   },
   "verification": {

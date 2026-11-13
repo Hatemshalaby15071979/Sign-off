@@ -1,6 +1,6 @@
 """Never-guesses: unmapped/unverifiable questions are answered UNMAPPED, always.
 
-There is no code path that invents an answer for a question with no signed
+There is no code path that invents an answer for a question with no authorised
 rule, and no code path that hides an unmapped question from the pack.
 """
 from __future__ import annotations
@@ -30,7 +30,7 @@ def build_with_questionnaire(tmp_path, csv_text: str, name="qq.csv"):
 CSV = "Ref,Question\nZZ-901,Do you have an AI policy document?\nZZ-902,Pricing?\n"
 
 
-def test_no_signed_rule_means_LITERAL_unmapped(tmp_path):
+def test_no_authorised_rule_means_LITERAL_unmapped(tmp_path):
     pack = build_with_questionnaire(tmp_path, CSV)
     for answer in pack.questions:
         assert answer.answer == UNMAPPED, answer.qid
@@ -53,8 +53,8 @@ def test_unmapped_show_in_the_gap_list(tmp_path):
     pack = build_with_questionnaire(tmp_path, CSV)
     artifacts = cli._render_artifacts(pack, pack.as_of)
     text = artifacts["gap-list.csv"].decode("utf-8")
-    assert "UNMAPPED: no signed rule maps question 'ZZ-901'" in text
-    assert text.count("UNMAPPED: no signed rule") == 2
+    assert "UNMAPPED: no authorised rule maps question 'ZZ-901'" in text
+    assert text.count("UNMAPPED: no authorised rule") == 2
 
 
 def test_blank_qid_is_a_parse_error_never_a_guess(tmp_path):
@@ -64,7 +64,7 @@ def test_blank_qid_is_a_parse_error_never_a_guess(tmp_path):
         builder_mod.parse_questionnaire_auto(path)
 
 
-def test_partial_mapping_only_covers_signed_rules(tmp_path):
+def test_partial_mapping_only_covers_authorised_rules(tmp_path):
     # only ZZ-901 is mapped; ZZ-902 must STILL be UNMAPPED
     rules, _ = load_mapping(FIXTURES / "mapping-table.demo.csv")
     mapped_qids = {r.source_qid for r in rules}
@@ -89,4 +89,4 @@ def test_no_free_text_can_float_without_a_rule_id(tmp_path):
             assert a.answer == UNMAPPED
             assert a.coverage_pct == "N/A (no events in period)"
         else:
-            assert "signed rule" in a.answer or "appendix pack" in a.answer
+            assert "authorised rule" in a.answer or "appendix pack" in a.answer
