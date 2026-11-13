@@ -1,0 +1,46 @@
+version: 2
+
+# Free dependency + workflow maintenance. No paid GitHub add-ons used.
+# Ecosystems detected from repository manifests:
+#   - npm        -> package.json
+#   - pip        -> pyproject.toml
+#   - docker     -> Dockerfile
+#   - github-actions -> .github/workflows
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    groups:
+      npm-minor-patch:
+        applies-to: "version-updates"
+        update-types: ["minor", "patch"]
+
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    groups:
+      pip-minor-patch:
+        applies-to: "version-updates"
+        update-types: ["minor", "patch"]
+
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      docker-minor-patch:
+        applies-to: "version-updates"
+        update-types: ["minor", "patch"]
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      actions-minor-patch:
+        applies-to: "version-updates"
+        update-types: ["minor", "patch"]
