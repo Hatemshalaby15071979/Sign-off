@@ -19,3 +19,10 @@ OWNER/questionnaires/
 OWNER/real-data/
 out/
 .coverage
+
+# Node: dev-only local test harness (playwright is not imported by any tracked
+# source — it is used ad-hoc for local browser smoke tests). Keep the manifests
+# local; add a tracked test package with its own manifest when that tooling
+# becomes part of the repo (then git rm the local copies and re-add).
+package.json
+package-lock.json
