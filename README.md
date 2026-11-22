@@ -19,7 +19,7 @@
 </div>
 
 <p float="left">
-  <strong>Signoff 0.1.0<br></strong><br>
+  <strong>Signoff 0.1.0</strong><br>
   <span style="font-size:0.9em;color:#93aaa0">by Helix Solutions</span>
 </p>
 
