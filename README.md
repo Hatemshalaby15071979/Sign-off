@@ -18,6 +18,11 @@
 
 </div>
 
+<p float="left">
+  <strong>Signoff 0.1.0<br></strong><br>
+  <span style="font-size:0.9em;color:#93aaa0">by Helix Solutions</span>
+</p>
+
 ## What is this?
 
 Signoff answers a question operations leaders actually ask: **"how did AI touch our customers?"** — with evidence, not adjectives.
