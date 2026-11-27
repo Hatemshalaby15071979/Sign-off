@@ -29,7 +29,7 @@ Companion to `docs/VIDEO-DEMO-PROMPT.md`. Complete this record before the
 | # | Gate | Evidence | Result |
 | - | ---- | -------- | ------ |
 | 1 | `ffprobe` duration 115–125 s, 1920×1080, 30 fps, audio present | `ffprobe out/video/signoff-demo-2min.mp4` | PASS — 120.000 s, H.264 High/yuv420p, 30 fps, AAC-LC |
-| 2 | Every on-screen claim traceable to a repo file (S4 → `SHIPMENT_READINESS.md`, S6 → `OWNER/offer-and-pricing.md`) | `out/video/SCENE-NOTES.md` citations | PASS — unsupported duration/count claims were removed |
+| 2 | Every on-screen claim traceable to a repo file (S4 → `docs/archive/SHIPMENT_READINESS.md`, S6 → `OWNER/offer-and-pricing.md`) | `out/video/SCENE-NOTES.md` citations | PASS — unsupported duration/count claims were removed |
 | 3 | Leak check: zero client org names, contact names, scratch paths, real export row values in frames or project files | Local scan of scene sources and captions; synthetic dossier visibly watermarked | PASS — no real client rows or identities in video assets |
 | 4 | Disclaimer visible on end frame ("Evidence packs prove internal consistency of your records — not certification.") | Final-frame inspection | PASS |
 | 5 | Render reproducible: re-run produces identical output hash (or non-reproducibility documented) | SHA-256 comparison of two final encodes from the same fixed segments | PASS — byte-identical final encodes |
@@ -45,9 +45,9 @@ published release asset.
 
 | Element | Source file | Verified (initials/date) |
 | ------- | ----------- | ------------------------ |
-| Problem / hook narration | `README.md`, `SHIPMENT_READINESS.md` | ☐ |
+| Problem / hook narration | `README.md`, `docs/archive/SHIPMENT_READINESS.md` | ☐ |
 | Offline pipeline visual | `docs/ARCHITECTURE.md` | ☐ |
-| Pilot stats (10/10 evidenced, 0 gaps; 90-day window refusals) | `SHIPMENT_READINESS.md` | ☐ |
+| Pilot stats (10/10 evidenced, 0 gaps; 90-day window refusals) | `docs/archive/SHIPMENT_READINESS.md` | ☐ |
 | Pricing bands (EGP 60–90k / Gulf $2,500–4,000 / Global $3,000–6,000; 50/50 terms) | `OWNER/offer-and-pricing.md` | ☐ |
 | "No compliance overclaiming" disclaimer present | `docs/VIDEO-DEMO-PROMPT.md` rule 3 | ☐ |
 | No real client data anywhere in video | Rule 1 + gate #3 | ☐ |
@@ -70,4 +70,4 @@ decided pricing and pilot statistics.
 | ---- | ----- |
 | Hosting | ☐ GitHub Release asset ☐ LinkedIn ☐ YouTube ☐ Not yet decided |
 | Link added to `index.html` / `README.md` | ☐ |
-| Release tag | `v0.1.0` or later, per `SHIPMENT_READINESS.md` launch sequence |
+| Release tag | `v0.1.0` or later, per `docs/archive/SHIPMENT_READINESS.md` launch sequence |

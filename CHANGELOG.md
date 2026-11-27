@@ -34,7 +34,7 @@ contributor-editable (see CONTRIBUTING.md).
   CVE-2026-114609 (SSRF via image-resource dereferencing) and CVE-2026-114610
   (SVG `<use>` resource exhaustion) in 2.8.4; Signoff never passes user input
   to `FPDF.image()`/`write_html()`, but the fixed pin removes the exposure.
-- Added: root `SECURITY.md` (GitHub-discoverable) and `SHIPMENT_READINESS.md`.
+- Added: root `SECURITY.md` (GitHub-discoverable) and `docs/archive/SHIPMENT_READINESS.md`.
 
 ## 0.1.0 — 2026-11-05
 

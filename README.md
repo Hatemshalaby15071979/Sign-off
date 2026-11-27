@@ -63,7 +63,7 @@ What is still open:
 - A valid hash chain proves the pack is internally consistent — it does not authenticate the source CSVs or prove their completeness. **Packs are hash-consistent, not signed:** `VERIFIED` means the artifact digests and hash chain replay; no signing key exists and no digital signature is produced.
 - A few decisions (licence confirmation, security contact, client-use terms) are deliberately left to the owner — see `OWNER/DECISIONS-TO-MAKE.md`.
 
-Details, if you want them: [SHIPMENT_READINESS.md](SHIPMENT_READINESS.md) · [REPORT.md](REPORT.md) · docs/ (architecture, decision log, owner handoff)
+Details, if you want them: [docs/archive/SHIPMENT_READINESS.md](docs/archive/SHIPMENT_READINESS.md) · [REPORT.md](REPORT.md) · docs/ (architecture, decision log, owner handoff)
 
 ## Run it
 

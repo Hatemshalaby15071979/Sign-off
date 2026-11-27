@@ -39,7 +39,7 @@ be honest: every number and claim must be traceable to a file in this repo.
    underlying rows, answer-level detail, or the real dossier, and never any
    client organization or contact name.
 2. **No fabricated claims.** Every on-screen number, price, and capability
-   must appear in one of: `README.md`, `SHIPMENT_READINESS.md`,
+   must appear in one of: `README.md`, `docs/archive/SHIPMENT_READINESS.md`,
    `CHANGELOG.md`, `docs/ARCHITECTURE.md`, `OWNER/offer-and-pricing.md`.
    Cite the source file in your scene notes (not on screen).
 3. **No compliance overclaiming.** Always keep the disclaimer idea visible
@@ -58,7 +58,7 @@ be honest: every number and claim must be traceable to a file in this repo.
 | - | ---- | --- |
 | 1 | `README.md` | product definition, 60-second demo commands, status |
 | 2 | `index.html` | the marketing narrative and copy you are animating |
-| 3 | `SHIPMENT_READINESS.md` | verified facts, pilot results, honest gaps |
+| 3 | `docs/archive/SHIPMENT_READINESS.md` | verified facts, pilot results, honest gaps |
 | 4 | `CHANGELOG.md` | pilot story + operator lessons (the refusal moments) |
 | 5 | `docs/ARCHITECTURE.md` | pipeline stages for the flow animation |
 | 6 | `docs/OFFLINE-GUARANTEE.md` + `docs/SECURITY.md` | the offline/security claims you may make |
@@ -133,7 +133,7 @@ product."*
 Visual: big counters animating 10/10 and 0 gaps (text only — no client rows);
 two "refusal moment" cards sliding in: `No — outside 90-day window` and
 `GAP — provider contract` then flipping to `Yes — remediated`. Cite
-`SHIPMENT_READINESS.md` in scene notes. **Show no exports, no dossier from
+`docs/archive/SHIPMENT_READINESS.md` in scene notes. **Show no exports, no dossier from
 the real pack.**
 
 **S5 · 1:19–1:39 · Engineering philosophy + why it's worth the money**
@@ -194,7 +194,7 @@ consistency of your records — not certification."*
 
 1. `ffprobe` shows duration 115–125 s, 1920×1080, 30 fps, has audio track.
 2. Every claim in the narration matches its source file (re-check S4 numbers
-   against `SHIPMENT_READINESS.md`, S6 against `OWNER/offer-and-pricing.md`).
+   against `docs/archive/SHIPMENT_READINESS.md`, S6 against `OWNER/offer-and-pricing.md`).
 3. **Leak check:** grep the render project for any client organization
    name, contact name, operator scratch paths, and any row values from real
    exports — zero hits allowed in frames or project files. (The pilot
