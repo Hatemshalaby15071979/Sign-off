@@ -78,3 +78,19 @@ Verification: Planned — `scripts/check_root_docs.py` and `--self-test`, then `
 Left undone: Nothing at sign-in.
 
 Sensitive: `git push origin main` (owner's instruction in chat, 2026-11-27). No force push, no history rewrite, no secrets.
+
+## [2026-11-27 05:23 EET] — sami (OpenMausBot), owner-authorised governance landing
+
+STATUS: SIGN-OUT (landing complete)
+
+Task: Bring this repository onto the portfolio governance standard. Done.
+
+Touched: `AGENTS.md`, `GOVERNANCE.md` (both new); `CONSTITUTION.md` (new, md5 `7b3339292cb98b1e1fe67b768ab1d79d`, the portfolio text); `scripts/check_root_docs.py` (new, md5 `35fc37ab16ff4461a33d4e2dcaedb7bf`); `SHIPMENT_READINESS.md` → `docs/archive/SHIPMENT_READINESS.md`, with its eleven references across `README.md`, `CHANGELOG.md`, `docs/01-DECISION-LOG.md`, `docs/VIDEO-DEMO-2MIN-SIGNOFF.md` and `docs/VIDEO-DEMO-PROMPT.md` repointed; `.github/workflows/ci.yml` (one new step, in the existing `checks` job). Nothing deleted. Correction to the sign-in above: this landed as a step in the existing job rather than a new job, because that job already installs the package and runs every other gate, which is where a root check belongs.
+
+Why: The repository had an unusually strong verification culture but no agent charter, no portfolio constitution, no written policy for the root and nothing enforcing one, and a dated shipment report at the root. Two documents that the portfolio standard would place in `docs/archive/` were deliberately **left at the root**: `CONTRIBUTING.md` and `REPORT.md`, because `scripts/check-scaffold.py` pins both as required root paths in its phase map. Weakening a verification gate to tidy the root would have been the wrong trade, so they are named in the section 2 table as required instead, with the tension recorded there for the owner.
+
+Verification: `scripts/check_root_docs.py` → "OK — Sign-off/ holds only the GOVERNANCE.md section 2 set" (9 table rows, 9 allowed root documents); `--self-test` → 7/7 cases behaved. The pre-existing gates were re-run and stayed green: `check-scaffold: OK (all phases) — 116 required files present` (unchanged by the move), `check-offline: OK — scanned 42 file(s) … zero network imports, zero model SDKs, zero outbound calls, zero env reads`, `check-determinism: OK — outputs are byte-identical across runs`, `ME-15: all agent-instruction files carry the quarantine header`, and `160 passed`. The workflow still parses and the `checks` job's last three steps are the demo run, the ME-15 guard and the new root-document step.
+
+Left undone: Nothing failing. One observation for the owner, not acted on: the ME-15 guard exists so that agent-directive files are treated as *data, not instructions*, but its scope is `docs/VIDEO-DEMO-PROMPT.md` and `docs/*_PROMPT.md` only — the root `AGENTS.md` added today, which is the most agent-directive file in the repository, is outside it. Whether root agent files should also carry the quarantine header is a policy question the owner should settle; the house AGENTS.md template used across the portfolio does not include it, so adopting it here alone would fork the template. CI on `f87a4e3` and the sign-out commit is the record of the same steps on a clean runner.
+
+Sensitive: `git push origin main` (owner's instruction in chat, 2026-11-27). No force push, no history rewrite, no secrets.
